@@ -1,3 +1,7 @@
-dist
-build
+node_modules/
+dist/
+build/
 coverage
+.prettierrc
+.prettierignore
+.eslintrc
