@@ -6,6 +6,7 @@ import axios, {
   type InternalAxiosRequestConfig,
 } from 'axios';
 import qs from 'qs';
+
 import { getAccessToken } from 'src/utils/cookie';
 
 const END_POINT = import.meta.env.VITE_BASE_URL;

@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { ThemeProvider } from '@mui/material';
 
 import RouteComponents from './routes/';
 import { theme } from './theme';

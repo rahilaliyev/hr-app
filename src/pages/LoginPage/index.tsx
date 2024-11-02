@@ -1,14 +1,18 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from '@mui/material';
+
 import { useLoginMutation } from 'src/api/login';
 import { type ILoginPayload } from 'src/api/login/types';
+
+import { Button, Typography } from '@mui/material';
+
 import { CustomFormProvider, CustomTextField, LoaderOverlay } from 'src/components';
-import { ROUTES } from 'src/routes/const';
-import { setAuthCookies } from 'src/utils';
 
 import { validationSchema } from './validationSchema';
+
+import { ROUTES } from 'src/routes/const';
+import { setAuthCookies } from 'src/utils';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -33,9 +37,17 @@ const LoginPage = () => {
   return (
     <LoaderOverlay loading={isPending}>
       <CustomFormProvider form={form} onSubmit={_onSubmit}>
+        <Typography variant="h5" textAlign="center" mb={11}>
+          Daxil olun
+        </Typography>
         <CustomTextField name="username" label="İstifadəçi adı" />
         <CustomTextField type="password" name="password" label="Şifrə" />
-        <Button type="submit">Davam et</Button>
+        <Typography marginBottom={2} variant="subtitle2" component="p" textAlign="right">
+          <Link to={ROUTES.AUTH.FORGOT_PASSWORD.PATH}>Şifrəni unutmusunuz?</Link>
+        </Typography>
+        <Button fullWidth type="submit">
+          Davam et
+        </Button>
       </CustomFormProvider>
     </LoaderOverlay>
   );

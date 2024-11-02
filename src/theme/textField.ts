@@ -8,9 +8,10 @@ export const textFieldTheme: Components = {
       root: {
         fontFamily: 'Manrope, sans-serif',
         width: '100%',
+        borderRadius: '8px !important',
 
         '&.Mui-disabled': {
-          backgroundColor: '#eee',
+          backgroundColor: colorPalette.secondary[100],
         },
 
         '& legend': {
@@ -18,8 +19,8 @@ export const textFieldTheme: Components = {
         },
       },
       input: {
-        padding: '4px 12px !important',
-        height: '36px',
+        padding: '10px 12px !important',
+        height: '20px',
       },
     },
   },
@@ -34,7 +35,7 @@ export const textFieldTheme: Components = {
       root: {
         fontFamily: 'Manrope, sans-serif',
         '& fieldset': {
-          borderColor: colorPalette.secondary.main,
+          borderColor: colorPalette.secondary[200],
         },
       },
     },
@@ -71,10 +72,10 @@ export const textFieldTheme: Components = {
         fontSize: '14px',
         fontWeight: 600,
         lineHeight: '20px',
-        marginBottom: '6px',
+        marginBottom: '8px',
         position: 'unset',
         transform: 'none',
-        color: colorPalette.common.black,
+        color: colorPalette.secondary[800],
         overflow: 'unset',
         whiteSpace: 'wrap',
         textAlign: 'left',
@@ -107,8 +108,12 @@ export const textFieldTheme: Components = {
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
-        paddingTop: '0 !important',
-        paddingBottom: '0 !important',
+        '& fieldset': {
+          borderColor: colorPalette.secondary[200], // Default border color
+        },
+        '&:hover fieldset': {
+          borderColor: colorPalette.primary.main + '!important',
+        },
       },
     },
   },
