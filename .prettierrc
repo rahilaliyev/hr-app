@@ -5,6 +5,5 @@
   "arrowParens": "always",
   "bracketSpacing": true,
   "printWidth": 110,
-  "bracketSameLine": false,
-  "trailingComma": "none"
+  "bracketSameLine": false
 }

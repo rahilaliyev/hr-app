@@ -40,8 +40,8 @@ export const theme = createTheme({
     ...tableTheme,
     ...textFieldTheme,
     ...tooltipTheme,
-    ...typographyTheme
-  }
+    ...typographyTheme,
+  },
 });
 
 export const modalTheme = createTheme({
@@ -64,6 +64,6 @@ export const modalTheme = createTheme({
     ...tableTheme,
     ...textFieldTheme,
     ...tooltipTheme,
-    ...typographyTheme
-  }
+    ...typographyTheme,
+  },
 });

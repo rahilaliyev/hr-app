@@ -1,3 +1,3 @@
-export enum EBearer {
-  BEARER = 'bearer'
+export enum EAuth {
+  BEARER = 'bearer',
 }

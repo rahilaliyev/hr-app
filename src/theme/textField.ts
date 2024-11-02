@@ -10,59 +10,59 @@ export const textFieldTheme: Components = {
         width: '100%',
 
         '&.Mui-disabled': {
-          backgroundColor: '#eee'
+          backgroundColor: '#eee',
         },
 
         '& legend': {
-          width: '0'
-        }
+          width: '0',
+        },
       },
       input: {
         padding: '4px 12px !important',
-        height: '36px'
-      }
-    }
+        height: '36px',
+      },
+    },
   },
   MuiTextField: {
     defaultProps: {
       fullWidth: true,
       InputLabelProps: {
-        shrink: false
-      }
+        shrink: false,
+      },
     },
     styleOverrides: {
       root: {
         fontFamily: 'Manrope, sans-serif',
         '& fieldset': {
-          borderColor: colorPalette.secondary.main
-        }
-      }
-    }
+          borderColor: colorPalette.secondary.main,
+        },
+      },
+    },
   },
   MuiInputAdornment: {
     styleOverrides: {
       root: {
         marginTop: '0 !important',
         '& .MuiTypography-root': {
-          color: `${colorPalette.common.black} !important`
-        }
-      }
-    }
+          color: `${colorPalette.common.black} !important`,
+        },
+      },
+    },
   },
   MuiCheckbox: {
     styleOverrides: {
       root: {
         color: colorPalette.secondary[200],
-        borderRadius: 4
-      }
-    }
+        borderRadius: 4,
+      },
+    },
   },
   MuiFormControl: {
     styleOverrides: {
       root: {
-        width: '100%'
-      }
-    }
+        width: '100%',
+      },
+    },
   },
   MuiInputLabel: {
     styleOverrides: {
@@ -77,39 +77,39 @@ export const textFieldTheme: Components = {
         color: colorPalette.common.black,
         overflow: 'unset',
         whiteSpace: 'wrap',
-        textAlign: 'left'
+        textAlign: 'left',
       },
       filled: {
-        transform: 'translate(12px, 12px) scale(1)'
-      }
-    }
+        transform: 'translate(12px, 12px) scale(1)',
+      },
+    },
   },
   MuiFormControlLabel: {
     styleOverrides: {
       label: {
-        fontFamily: 'Manrope, sans-serif'
-      }
-    }
+        fontFamily: 'Manrope, sans-serif',
+      },
+    },
   },
   MuiFilledInput: {
     styleOverrides: {
       root: {
         borderRadius: 4,
         '&::before': {
-          border: 'none'
-        }
+          border: 'none',
+        },
       },
       input: {
-        padding: 0
-      }
-    }
+        padding: 0,
+      },
+    },
   },
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
         paddingTop: '0 !important',
-        paddingBottom: '0 !important'
-      }
-    }
-  }
+        paddingBottom: '0 !important',
+      },
+    },
+  },
 };

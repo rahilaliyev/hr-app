@@ -1,4 +1,4 @@
-import { type EBearer } from 'src/ts/enums';
+import { type EAuth } from 'src/ts/enums';
 
 export interface ILoginPayload {
   username: string;
@@ -7,6 +7,6 @@ export interface ILoginPayload {
 
 export interface ILoginResponse {
   access_token: string;
-  token_type: EBearer.BEARER;
+  token_type: EAuth.BEARER;
   epires_in: number;
 }

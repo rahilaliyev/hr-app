@@ -3,7 +3,7 @@ import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,
   type AxiosResponse,
-  type InternalAxiosRequestConfig
+  type InternalAxiosRequestConfig,
 } from 'axios';
 import qs from 'qs';
 import { getAccessToken } from 'src/utils/cookie';
@@ -15,18 +15,18 @@ const authToken = getAccessToken();
 export const axiosLogin: AxiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
 export const api = axios.create({
   baseURL: BASE_URL,
   headers: {
-    Authorization: `Bearer ${authToken}`
+    Authorization: `Bearer ${authToken}`,
   },
   paramsSerializer: (params) => {
     return qs.stringify(params, { indices: false });
-  }
+  },
 });
 
 const onRequestSend = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
@@ -39,7 +39,7 @@ const onRequestSend = (config: InternalAxiosRequestConfig): InternalAxiosRequest
   return config;
 };
 
-const onRequestError = async (error: AxiosError) => await Promise.reject(error);
+const onRequestError = (error: AxiosError) => Promise.reject(error);
 
 const onResponseSuccess = (config: AxiosResponse): AxiosResponse => config;
 
@@ -54,7 +54,7 @@ const onResponseFailed = (error: AxiosError | Error): AxiosError => {
       url,
       status,
       statusText,
-      message
+      message,
     });
 
     switch (status) {

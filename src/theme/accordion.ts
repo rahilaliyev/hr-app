@@ -8,21 +8,21 @@ export const accordionTheme: Components = {
         boxShadow: 'none',
 
         '&.Mui-expanded': {
-          margin: 0
+          margin: 0,
         },
 
         '&::before': {
-          display: 'none'
-        }
-      }
-    }
+          display: 'none',
+        },
+      },
+    },
   },
   MuiAccordionDetails: {
     styleOverrides: {
       root: {
-        padding: 0
-      }
-    }
+        padding: 0,
+      },
+    },
   },
   MuiAccordionSummary: {
     styleOverrides: {
@@ -30,8 +30,8 @@ export const accordionTheme: Components = {
         fontSize: '14px',
         fontWeight: '600',
         lineHeight: '20px',
-        padding: 0
-      }
-    }
-  }
+        padding: 0,
+      },
+    },
+  },
 };

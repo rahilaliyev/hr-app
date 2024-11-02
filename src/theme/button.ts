@@ -7,7 +7,7 @@ export const buttonTheme: Components = {
     defaultProps: {
       variant: 'contained',
       disableElevation: true,
-      disableFocusRipple: true
+      disableFocusRipple: true,
     },
     styleOverrides: {
       root: {
@@ -22,43 +22,43 @@ export const buttonTheme: Components = {
           height: 36,
           padding: '9px 16px',
           fontSize: '12px',
-          lineHeight: '18px'
+          lineHeight: '18px',
         },
 
         '&.MuiButton-sizeMedium': {
           height: 40,
           padding: '10px 16px',
           fontSize: '14px',
-          lineHeight: '20px'
+          lineHeight: '20px',
         },
 
         '&.MuiButton-sizeLarge': {
           height: 44,
-          padding: '10px 16px'
+          padding: '10px 16px',
         },
 
         '& .MuiChip-root': {
           width: 18,
           height: 18,
           borderRadius: '50%',
-          marginLeft: 8
+          marginLeft: 8,
         },
 
         '& .MuiChip-label': {
-          padding: 0
+          padding: 0,
         },
 
         '&:hover': {
-          background: colorPalette.primary[500]
+          background: colorPalette.primary[500],
         },
 
         '&:focus': {
-          background: colorPalette.primary[700]
+          background: colorPalette.primary[700],
         },
 
         '&:disabled': {
-          background: colorPalette.secondary[100]
-        }
+          background: colorPalette.secondary[100],
+        },
       },
       outlined: {
         borderColor: colorPalette.primary.main,
@@ -67,24 +67,24 @@ export const buttonTheme: Components = {
         '&:hover': {
           borderColor: colorPalette.primary[500],
           color: colorPalette.primary[500],
-          background: 'none'
+          background: 'none',
         },
 
         '&:disabled': {
           borderColor: colorPalette.secondary[200],
           color: colorPalette.secondary[400],
-          background: 'none'
-        }
+          background: 'none',
+        },
       },
       contained: {
-        color: colorPalette.common.white
+        color: colorPalette.common.white,
       },
       text: {
         '&:hover': {
           backgroundColor: 'transparent',
-          color: colorPalette.primary[500]
-        }
-      }
-    }
-  }
+          color: colorPalette.primary[500],
+        },
+      },
+    },
+  },
 };

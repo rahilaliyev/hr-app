@@ -8,41 +8,41 @@ export const chipTheme: Components = {
       root: {
         fontFamily: 'Manrope, sans-serif',
         backgroundColor: colorPalette.secondary[300],
-        color: colorPalette.secondary[700]
+        color: colorPalette.secondary[700],
       },
       colorSuccess: {
         backgroundColor: colorPalette.success[100],
         color: colorPalette.success.main,
 
         '& .MuiBox-root': {
-          backgroundColor: colorPalette.success.main
-        }
+          backgroundColor: colorPalette.success.main,
+        },
       },
       colorError: {
         backgroundColor: colorPalette.error[500],
         color: colorPalette.error[500],
         '& .MuiBox-root': {
-          backgroundColor: colorPalette.error[500]
-        }
+          backgroundColor: colorPalette.error[500],
+        },
       },
       colorInfo: {
         color: colorPalette.info[100],
 
         '& .MuiBox-root': {
-          backgroundColor: colorPalette.info[100]
-        }
+          backgroundColor: colorPalette.info[100],
+        },
       },
       sizeSmall: {
-        fontSize: '12px'
+        fontSize: '12px',
       },
       outlined: {
         backgroundColor: 'transparent',
         border: 'none',
 
         '& .MuiChip-label': {
-          paddingLeft: 0
-        }
-      }
-    }
-  }
+          paddingLeft: 0,
+        },
+      },
+    },
+  },
 };

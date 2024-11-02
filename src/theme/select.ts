@@ -7,7 +7,7 @@ export const selectTheme: Components = {
     defaultProps: {
       displayEmpty: true,
       fullWidth: true,
-      variant: 'outlined'
+      variant: 'outlined',
     },
     styleOverrides: {
       root: {
@@ -16,36 +16,36 @@ export const selectTheme: Components = {
         border: 'none',
 
         '&::before': {
-          display: 'none'
+          display: 'none',
         },
 
         '&.Mui-focused::after': {
-          display: 'none'
-        }
+          display: 'none',
+        },
       },
       standard: {
         border: 'none',
-        outline: 'none'
+        outline: 'none',
       },
       outlined: {
         height: '36px',
-        padding: '4px 12px !important'
+        padding: '4px 12px !important',
       },
       select: {
         color: colorPalette.common.black,
         display: 'flex',
         alignItems: 'center',
         padding: '0 !important',
-        marginRight: '20px'
-      }
-    }
+        marginRight: '20px',
+      },
+    },
   },
   MuiMenuItem: {
     styleOverrides: {
       root: {
         fontFamily: 'Manrope, sans-serif',
-        color: colorPalette.common.black
-      }
-    }
-  }
+        color: colorPalette.common.black,
+      },
+    },
+  },
 };
