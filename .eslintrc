@@ -54,11 +54,13 @@
           {
             "groups": [
               ["^react", "^@?\\w"],
-              ["^(consts|contexts|hooks|middleware|mocks|routes|services|store|ts|utils)"],
-              ["^(components|pages)"],
+              ["^src/api"],
+              ["^@mui"],
+              ["^(src/components|src/pages)"],
               ["^(\\.\\.)"],
               ["^(\\.)"],
-              ["^(assets)"],
+              ["^(src/constants|src/contexts|src/hooks|src/routes|src/ts|src/utils)"],
+              ["^(src/assets)"],
               ["(.s?css)$"]
             ]
           }

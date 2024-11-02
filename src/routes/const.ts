@@ -5,7 +5,13 @@ export const ROUTES = {
   DEFAULT: {
     PATH: BASE_PATH,
   },
-  LOGIN: {
-    PATH: `${BASE_AUTH_PATH}/login`,
+  AUTH: {
+    PATH: BASE_AUTH_PATH,
+    LOGIN: {
+      PATH: `${BASE_AUTH_PATH}/login`,
+    },
+    FORGOT_PASSWORD: {
+      PATH: `${BASE_AUTH_PATH}/forgot-password`,
+    },
   },
 };
