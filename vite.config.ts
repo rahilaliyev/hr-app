@@ -10,13 +10,13 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         exportType: 'named',
-        icon: true
-      }
-    })
+        icon: true,
+      },
+    }),
   ],
   resolve: {
     alias: {
-      src: '/src'
-    }
-  }
+      src: '/src',
+    },
+  },
 });

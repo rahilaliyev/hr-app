@@ -33,7 +33,15 @@
     "no-eval": "error",
     "no-var": "error",
     "@typescript-eslint/no-explicit-any": "warn",
-    "eqeqeq": ["error", "always"]
+    "eqeqeq": ["error", "always"],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/promise-function-async": "off"
   },
   "overrides": [
     {

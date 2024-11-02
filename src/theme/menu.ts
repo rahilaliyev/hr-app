@@ -5,33 +5,33 @@ export const menuTheme: Components = {
     defaultProps: {
       anchorOrigin: {
         vertical: 'top',
-        horizontal: 'left'
+        horizontal: 'left',
       },
       transformOrigin: {
         vertical: 'top',
-        horizontal: 'left'
-      }
+        horizontal: 'left',
+      },
     },
     styleOverrides: {
       root: {
         marginTop: 44,
         padding: 8,
-        borderRadius: 8
+        borderRadius: 8,
       },
       paper: {
         width: 280,
         marginLeft: -16,
-        padding: 8
-      }
-    }
+        padding: 8,
+      },
+    },
   },
   MuiList: {
     styleOverrides: {
       root: {
         '& .MuiTypography-root': {
-          marginLeft: 8
-        }
-      }
-    }
-  }
+          marginLeft: 8,
+        },
+      },
+    },
+  },
 };

@@ -7,15 +7,15 @@ export const datepickerTheme: Components = {
     styleOverrides: {
       root: {
         '& .MuiPickersLayout-contentWrapper *': {
-          fontFamily: 'Manrope, sans-serif'
+          fontFamily: 'Manrope, sans-serif',
         },
         '& .MuiPickersYear-yearButton.Mui-selected, & .MuiPickersDay-root.Mui-selected': {
-          color: colorPalette.common.white
+          color: colorPalette.common.white,
         },
         '& .MuiDayCalendar-weekDayLabel': {
-          color: colorPalette.common.black
-        }
-      }
-    }
-  }
+          color: colorPalette.common.black,
+        },
+      },
+    },
+  },
 };

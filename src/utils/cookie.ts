@@ -12,6 +12,6 @@ export const setAuthCookies = (accessToken: string) => {
   Cookies.set(accessTokenName, accessToken, {
     expires: 3,
     sameSite: 'none',
-    secure: true
+    secure: true,
   });
 };

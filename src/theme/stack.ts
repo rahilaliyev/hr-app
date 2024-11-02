@@ -4,12 +4,12 @@ export const stackTheme: Components = {
   MuiStack: {
     defaultProps: {
       alignItems: 'center',
-      flexDirection: 'row'
+      flexDirection: 'row',
     },
     styleOverrides: {
       root: {
-        fontFamily: 'Manrope, sans-serif'
-      }
-    }
-  }
+        fontFamily: 'Manrope, sans-serif',
+      },
+    },
+  },
 };

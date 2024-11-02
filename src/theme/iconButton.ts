@@ -6,8 +6,8 @@ export const iconButtonTheme: Components = {
       root: {
         fontFamily: 'Manrope, sans-serif',
         padding: 0,
-        margin: 0
-      }
-    }
-  }
+        margin: 0,
+      },
+    },
+  },
 };

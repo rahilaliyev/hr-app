@@ -10,23 +10,23 @@ export const dataGridTheme: DataGridComponents = {
       rowHeight: 40,
       hideFooter: true,
       disableColumnMenu: true,
-      disableVirtualization: false
+      disableVirtualization: false,
     },
     styleOverrides: {
       root: {
         fontFamily: 'Manrope, sans-serif',
         backgroundColor: colorPalette.primary[200],
-        border: 'none'
+        border: 'none',
       },
       main: {
         width: '100%',
-        overflow: 'auto'
+        overflow: 'auto',
       },
       row: {
         borderBottom: `1px solid ${colorPalette.secondary[200]}`,
         '&.Mui-selected': {
-          backgroundColor: 'transparent'
-        }
+          backgroundColor: 'transparent',
+        },
       },
       cell: {
         padding: '8px 12px',
@@ -42,16 +42,16 @@ export const dataGridTheme: DataGridComponents = {
         whiteSpace: 'nowrap',
 
         '&:focus': {
-          outline: 'none'
+          outline: 'none',
         },
         '&:focus-within': {
-          outline: 'none'
-        }
+          outline: 'none',
+        },
       },
       columnHeaders: {
         position: 'sticky',
         top: 0,
-        zIndex: 1000
+        zIndex: 1000,
       },
       columnHeader: {
         height: 'auto !important',
@@ -63,11 +63,11 @@ export const dataGridTheme: DataGridComponents = {
         borderBottom: `1px solid ${colorPalette.secondary[200]}`,
 
         '&:focus-within': {
-          outline: 'none'
-        }
+          outline: 'none',
+        },
       },
       columnSeparator: {
-        display: 'none'
+        display: 'none',
       },
       overlay: {
         backgroundColor: 'transparent',
@@ -75,16 +75,16 @@ export const dataGridTheme: DataGridComponents = {
         '& .MuiCircularProgress-root': {
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
-        }
+          alignItems: 'center',
+        },
       },
       virtualScrollerRenderZone: {
         backgroundColor: 'transparent',
-        padding: '8px 12px'
+        padding: '8px 12px',
       },
       virtualScrollerContent: {
-        paddingBottom: '14px'
-      }
-    }
-  }
+        paddingBottom: '14px',
+      },
+    },
+  },
 };
