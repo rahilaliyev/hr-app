@@ -1,16 +1,30 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import UserContext from 'src/context/userContext';
 
-import { ROUTES } from 'src/routes/const';
-import { getAccessToken } from 'src/utils';
+import { Stack } from '@mui/material';
+
+import { CompanyModal, Header, Sidebar } from './components';
 
 const PrivateLayout = () => {
-  const token = getAccessToken();
-  return token ? (
-    <div>
-      Sidebar <Outlet />
-    </div>
-  ) : (
-    <Navigate to={ROUTES.AUTH.LOGIN.PATH} />
+  const { company } = useContext(UserContext);
+  const [open, setOpen] = useState(!company);
+
+  return (
+    <Stack height="100%" alignItems="flex-start">
+      <CompanyModal open={open} setOpen={setOpen} disableClose={true} />
+      <Sidebar />
+      <Stack
+        flexDirection="column"
+        height="100%"
+        sx={{
+          width: (theme) => `calc(100% - ${theme.spacing(2)})`,
+        }}
+      >
+        <Header />
+        <Outlet />
+      </Stack>
+    </Stack>
   );
 };
 

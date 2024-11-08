@@ -9,6 +9,7 @@ export const modal: Components = {
       },
       paper: {
         padding: '40px !important',
+        borderRadius: '12px',
       },
 
       paperWidthMd: {

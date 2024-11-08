@@ -20,3 +20,15 @@ export const StyledFormContainer = styled(Stack)(({ theme }) => ({
   padding: theme.spacing(20),
   height: '100%',
 }));
+
+export const StyledSidebar = styled(Box)(({ theme }) => ({
+  width: theme.spacing(60),
+  height: '100%',
+  borderRight: `${theme.spacing(0.25)} solid ${theme.palette.grey[200]}`,
+}));
+
+export const StyledHeader = styled(Stack)(({ theme }) => ({
+  borderBottom: `${theme.spacing(0.25)} solid ${theme.palette.grey[200]}`,
+  width: '100%',
+  padding: theme.spacing(4, 6),
+}));

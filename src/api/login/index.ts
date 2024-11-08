@@ -1,8 +1,9 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
-import { axiosLogin } from '../axiosInstance';
+import { api, axiosLogin } from '../axiosInstance';
+import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type ILoginPayload, type ILoginResponse } from './types';
+import { type ILoginPayload, type ILoginResponse, type IUserDetails } from './types';
 
 export const useLoginMutation = () =>
   useMutation<ILoginResponse, Error, ILoginPayload>({
@@ -11,3 +12,14 @@ export const useLoginMutation = () =>
       return res.data;
     },
   });
+
+export const useGetUserDetailsById = (id: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.USER.USER_DETAILS, id],
+    queryFn: async () => {
+      const res = await api.get<IUserDetails>(`/users/${id}`);
+      return res.data;
+    },
+    enabled: !!id,
+  });
+};
