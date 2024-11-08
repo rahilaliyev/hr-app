@@ -5,7 +5,7 @@ const accessTokenName = 'accessToken';
 export const getAccessToken = (): string | undefined => Cookies.get(accessTokenName);
 
 export const removeAuthCookies = (): void => {
-  Cookies.remove(accessTokenName, { path: '/login' });
+  Cookies.remove(accessTokenName, { path: '/' });
 };
 
 export const setAuthCookies = (accessToken: string) => {
@@ -13,5 +13,6 @@ export const setAuthCookies = (accessToken: string) => {
     expires: 3,
     sameSite: 'none',
     secure: true,
+    path: '/',
   });
 };

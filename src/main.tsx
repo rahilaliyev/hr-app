@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { ThemeProvider } from '@mui/material';
 
+import { UserProvider } from './context/userContext';
 import RouteComponents from './routes/';
 import { theme } from './theme';
 
@@ -23,9 +24,11 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
-      <Router>
-        <RouteComponents />
-      </Router>
+      <UserProvider>
+        <Router>
+          <RouteComponents />
+        </Router>
+      </UserProvider>{' '}
     </ThemeProvider>
   </QueryClientProvider>,
 );
