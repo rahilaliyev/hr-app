@@ -40,6 +40,8 @@ export const Header = () => {
     setOpen(true);
   };
 
+  console.log('salam');
+
   return (
     <StyledHeader justifyContent="space-between">
       <CompanyModal open={open} setOpen={setOpen} />
