@@ -15,25 +15,25 @@ export const dataGridTheme: DataGridComponents = {
     styleOverrides: {
       root: {
         fontFamily: 'Manrope, sans-serif',
-        backgroundColor: colorPalette.primary[200],
-        border: 'none',
+        border: `1px solid ${colorPalette.grey[200]}`,
+        borderRadius: '8px',
       },
       main: {
         width: '100%',
         overflow: 'auto',
       },
       row: {
-        borderBottom: `1px solid ${colorPalette.secondary[200]}`,
+        borderBottom: `1px solid ${colorPalette.grey[200]}`,
         '&.Mui-selected': {
           backgroundColor: 'transparent',
         },
       },
       cell: {
-        padding: '8px 12px',
+        padding: '12px 16px',
         display: 'flex',
         alignItems: 'center',
-        fontSize: '12px',
-        lineHeight: '18px',
+        fontSize: '14px',
+        lineHeight: '20px',
         fontWeight: 400,
         borderColor: 'transparent',
         color: colorPalette.common.black,
@@ -55,12 +55,13 @@ export const dataGridTheme: DataGridComponents = {
       },
       columnHeader: {
         height: 'auto !important',
-        backgroundColor: colorPalette.primary[200],
-        padding: '8px 12px',
-        fontSize: '12px',
-        lineHeight: '18px',
-        color: colorPalette.secondary[800],
-        borderBottom: `1px solid ${colorPalette.secondary[200]}`,
+        backgroundColor: colorPalette.grey[50],
+        padding: '12px 16px',
+        fontSize: '14px',
+        fontWeight: '600',
+        lineHeight: '20px',
+        color: colorPalette.secondary.dark,
+        borderBottom: `1px solid ${colorPalette.grey[200]}`,
 
         '&:focus-within': {
           outline: 'none',
@@ -80,7 +81,6 @@ export const dataGridTheme: DataGridComponents = {
       },
       virtualScrollerRenderZone: {
         backgroundColor: 'transparent',
-        padding: '8px 12px',
       },
       virtualScrollerContent: {
         paddingBottom: '14px',

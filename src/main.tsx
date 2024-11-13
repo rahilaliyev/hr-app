@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')!).render(
         <Router>
           <RouteComponents />
         </Router>
-      </UserProvider>{' '}
+      </UserProvider>
     </ThemeProvider>
   </QueryClientProvider>,
 );

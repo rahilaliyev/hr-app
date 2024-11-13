@@ -29,7 +29,6 @@
     "simple-import-sort/exports": "error",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-debugger": "error",
-    "no-unused-vars": "warn",
     "no-eval": "error",
     "no-var": "error",
     "@typescript-eslint/no-explicit-any": "warn",
@@ -42,6 +41,8 @@
     ],
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/promise-function-async": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/array-type": ["error", { "default": "array" }],
   },
   "overrides": [
     {

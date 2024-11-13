@@ -4,16 +4,7 @@ import eslint from 'vite-plugin-eslint2';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    eslint(),
-    svgr({
-      svgrOptions: {
-        exportType: 'named',
-        icon: true,
-      },
-    }),
-  ],
+  plugins: [react(), eslint(), svgr()],
   resolve: {
     alias: {
       src: '/src',

@@ -2,6 +2,11 @@ export interface ID {
   id: number;
 }
 
+export interface IconProps {
+  width?: number;
+  height?: number;
+}
+
 interface ILink {
   url: string;
   label: string;

@@ -7,7 +7,7 @@ import axios, {
 } from 'axios';
 import qs from 'qs';
 
-import { getAccessToken } from 'src/utils/cookie';
+import { getAccessToken, removeAuthCookies } from 'src/utils/cookie';
 
 const END_POINT = import.meta.env.VITE_BASE_URL;
 const BASE_URL = END_POINT + '/api';
@@ -60,7 +60,8 @@ const onResponseFailed = (error: AxiosError | Error): AxiosError => {
 
     switch (status) {
       case 401:
-        console.warn('401 Unauthorized access - redirecting to login');
+        removeAuthCookies();
+        window.location.href = '/auth/login';
         break;
       case 403:
         console.warn('403 Access forbidden - you do not have permission');

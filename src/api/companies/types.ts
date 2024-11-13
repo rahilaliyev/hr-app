@@ -9,7 +9,7 @@ export interface ICompanies extends ID {
   city: string;
   cor_account: string;
   country: string;
-  created_at: Date;
+  created_at: Date | string;
   enterprise_head_fullname: string;
   enterprise_head_position: string;
   eur_account: string;
@@ -22,7 +22,7 @@ export interface ICompanies extends ID {
   sun: string;
   swift: string;
   tel: string;
-  updated_at: Date;
+  updated_at: Date | string;
   usd_account: string;
   voen: number;
 }

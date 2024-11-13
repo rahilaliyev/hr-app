@@ -7,11 +7,11 @@ export const chipTheme: Components = {
     styleOverrides: {
       root: {
         fontFamily: 'Manrope, sans-serif',
-        backgroundColor: colorPalette.secondary[300],
-        color: colorPalette.secondary[700],
+        backgroundColor: colorPalette.grey[300],
+        color: colorPalette.grey[700],
       },
       colorSuccess: {
-        backgroundColor: colorPalette.success[100],
+        backgroundColor: colorPalette.success.light,
         color: colorPalette.success.main,
 
         '& .MuiBox-root': {
@@ -19,17 +19,17 @@ export const chipTheme: Components = {
         },
       },
       colorError: {
-        backgroundColor: colorPalette.error[500],
-        color: colorPalette.error[500],
+        backgroundColor: colorPalette.error.dark,
+        color: colorPalette.error.dark,
         '& .MuiBox-root': {
-          backgroundColor: colorPalette.error[500],
+          backgroundColor: colorPalette.error.dark,
         },
       },
       colorInfo: {
-        color: colorPalette.info[100],
+        color: colorPalette.info.light,
 
         '& .MuiBox-root': {
-          backgroundColor: colorPalette.info[100],
+          backgroundColor: colorPalette.info.light,
         },
       },
       sizeSmall: {
