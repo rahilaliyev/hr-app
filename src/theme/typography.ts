@@ -76,7 +76,7 @@ export const typographyTheme: Components = {
       {
         props: { variant: 'subtitle2' },
         style: {
-          color: colorPalette.secondary[900],
+          color: colorPalette.secondary.dark,
         },
       },
     ],

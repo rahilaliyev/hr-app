@@ -9,9 +9,10 @@ export const textFieldTheme: Components = {
         fontFamily: 'Manrope, sans-serif',
         width: '100%',
         borderRadius: '8px !important',
+        transition: '0.3s',
 
         '&.Mui-disabled': {
-          backgroundColor: colorPalette.secondary[100],
+          backgroundColor: colorPalette.secondary.light,
         },
 
         '& legend': {
@@ -35,7 +36,7 @@ export const textFieldTheme: Components = {
       root: {
         fontFamily: 'Manrope, sans-serif',
         '& fieldset': {
-          borderColor: colorPalette.secondary[200],
+          borderColor: colorPalette.secondary.light,
         },
       },
     },
@@ -53,7 +54,7 @@ export const textFieldTheme: Components = {
   MuiCheckbox: {
     styleOverrides: {
       root: {
-        color: colorPalette.secondary[200],
+        color: colorPalette.grey[200],
         borderRadius: 4,
       },
     },
@@ -75,7 +76,7 @@ export const textFieldTheme: Components = {
         marginBottom: '8px',
         position: 'unset',
         transform: 'none',
-        color: colorPalette.secondary[800],
+        color: colorPalette.secondary.dark,
         overflow: 'unset',
         whiteSpace: 'wrap',
         textAlign: 'left',
@@ -108,11 +109,18 @@ export const textFieldTheme: Components = {
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
+        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+
         '& fieldset': {
-          borderColor: colorPalette.secondary[200], // Default border color
+          borderColor: colorPalette.grey[200],
+          transition: 'border-color 0.3s ease',
         },
         '&:hover fieldset': {
-          borderColor: colorPalette.primary.main + '!important',
+          borderColor: `${colorPalette.primary.main} !important`,
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: colorPalette.primary.main,
+          boxShadow: `0 0 4px ${colorPalette.primary.light}`,
         },
       },
     },

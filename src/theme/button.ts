@@ -49,15 +49,15 @@ export const buttonTheme: Components = {
         },
 
         '&:hover': {
-          background: colorPalette.primary[500],
+          background: colorPalette.orange[500],
         },
 
         '&:focus': {
-          background: colorPalette.primary[200],
+          background: colorPalette.orange[200],
         },
 
         '&:disabled': {
-          background: colorPalette.secondary[100],
+          background: colorPalette.grey[100],
         },
       },
       outlined: {
@@ -65,14 +65,14 @@ export const buttonTheme: Components = {
         transition: '0.25s',
 
         '&:hover': {
-          borderColor: colorPalette.primary[500],
-          color: colorPalette.primary[500],
+          borderColor: colorPalette.orange[500],
+          color: colorPalette.orange[500],
           background: 'none',
         },
 
         '&:disabled': {
-          borderColor: colorPalette.secondary[200],
-          color: colorPalette.secondary[400],
+          borderColor: colorPalette.grey[200],
+          color: colorPalette.grey[400],
           background: 'none',
         },
       },
@@ -82,7 +82,7 @@ export const buttonTheme: Components = {
       text: {
         '&:hover': {
           backgroundColor: 'transparent',
-          color: colorPalette.primary[500],
+          color: colorPalette.orange[500],
         },
       },
     },
