@@ -6,8 +6,6 @@ export const dataGridTheme: DataGridComponents = {
   MuiDataGrid: {
     defaultProps: {
       disableColumnResize: true,
-      columnHeaderHeight: 40,
-      rowHeight: 40,
       hideFooter: true,
       disableColumnMenu: true,
       disableVirtualization: false,

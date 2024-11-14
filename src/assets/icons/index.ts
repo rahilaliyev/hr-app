@@ -8,7 +8,9 @@ import { ChevronRightIcon } from './chevronRight';
 import { DownloadIcon } from './download';
 import { EmployeeIcon } from './employee';
 import { FilterIcon } from './filter';
+import { InfoCircleIcon } from './info-circle';
 import { SearchIcon } from './search';
+import { TrashIcon } from './trash';
 
 export {
   AddIcon,
@@ -21,5 +23,7 @@ export {
   DownloadIcon,
   EmployeeIcon,
   FilterIcon,
+  InfoCircleIcon,
   SearchIcon,
+  TrashIcon,
 };

@@ -10,6 +10,7 @@ export const textFieldTheme: Components = {
         width: '100%',
         borderRadius: '8px !important',
         transition: '0.3s',
+        color: colorPalette.secondary.dark,
 
         '&.Mui-disabled': {
           backgroundColor: colorPalette.secondary.light,

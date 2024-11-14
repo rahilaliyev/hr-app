@@ -2,6 +2,8 @@ import { type ICompanies } from 'src/api/companies/types';
 
 import { type GridColDef } from '@mui/x-data-grid';
 
+import TableActions from './tableActions';
+
 export const tableFields: GridColDef<ICompanies>[] = [
   {
     minWidth: 50,
@@ -32,5 +34,12 @@ export const tableFields: GridColDef<ICompanies>[] = [
     minWidth: 220,
     field: 'enterprise_head_position',
     headerName: 'Rəhbərin vəzifəsi',
+  },
+  {
+    flex: 1,
+    minWidth: 120,
+    field: 'actions',
+    headerName: '',
+    renderCell: ({ row }) => <TableActions id={row?.id} />,
   },
 ];
