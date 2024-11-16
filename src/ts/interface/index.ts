@@ -5,6 +5,8 @@ export interface ID {
 export interface IconProps {
   width?: number;
   height?: number;
+  svgFill?: string;
+  pathFill?: string;
 }
 
 interface ILink {

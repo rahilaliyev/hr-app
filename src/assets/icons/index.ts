@@ -1,5 +1,6 @@
 import { AddIcon } from './add';
 import { CategoryIcon } from './category';
+import { CautionFillIcon } from './cautionFill';
 import { ChevronDoubleLeftIcon } from './chevronDoubleLeft';
 import { ChevronDoubleRightIcon } from './chevronDoubleRight';
 import { ChevronDownIcon } from './chevronDown';
@@ -15,6 +16,7 @@ import { TrashIcon } from './trash';
 export {
   AddIcon,
   CategoryIcon,
+  CautionFillIcon,
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
   ChevronDownIcon,

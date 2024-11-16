@@ -1,3 +1,4 @@
+import { type MouseEvent } from 'react';
 import { modalTheme } from 'src/theme';
 
 import {
@@ -15,7 +16,7 @@ import { LoaderOverlay } from '../loaderOverlay';
 
 interface IModalProps extends Omit<DialogProps, 'onClose' | 'actions'> {
   title?: string;
-  onClose?: (event: unknown, reason: 'backdropClick' | 'escapeKeyDown') => void;
+  onClose?: (event: MouseEvent, reason: 'backdropClick' | 'escapeKeyDown') => void;
   hideActionsBtns?: boolean;
   loading?: boolean;
   logo?: React.ReactNode;
@@ -40,7 +41,7 @@ export const ModalComponent = (props: IModalProps) => {
     onClickSubmitButton,
   } = props;
 
-  const handleButtonClose = (event: React.MouseEvent) => {
+  const handleButtonClose = (event: MouseEvent) => {
     if (onClose) {
       onClose(event, 'escapeKeyDown');
     }

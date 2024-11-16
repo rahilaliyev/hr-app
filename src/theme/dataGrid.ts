@@ -7,6 +7,8 @@ export const dataGridTheme: DataGridComponents = {
     defaultProps: {
       disableColumnResize: true,
       hideFooter: true,
+      columnHeaderHeight: 40,
+      rowHeight: 50,
       disableColumnMenu: true,
       disableVirtualization: false,
     },
