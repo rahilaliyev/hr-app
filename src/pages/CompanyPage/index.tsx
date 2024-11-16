@@ -84,7 +84,7 @@ const CompanyPage = () => {
       </Panel.Header>
 
       <Panel.Body>
-        <Stack width="100%">
+        <Stack width="100%" height="100%">
           <DataGrid columns={tableFields} rows={data?.data} loading={isLoading} />
         </Stack>
         <CustomTablePagination
