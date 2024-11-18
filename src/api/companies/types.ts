@@ -1,3 +1,5 @@
+import { type TFormValues } from 'src/pages/CompanyPage/CompanyAddEditPage/components/validationSchema';
+
 import { type IServiceId } from '../options/types';
 
 import { type ID } from 'src/ts/interface';
@@ -27,4 +29,13 @@ export interface ICompanies extends ID {
   updated_at: Date | string;
   usd_account: string;
   voen: number;
+}
+
+interface IUpdatePayloadBody extends TFormValues {
+  update_user_id?: number;
+}
+
+export interface IUpdateCompanyPayload {
+  id: string;
+  body: IUpdatePayloadBody;
 }
