@@ -1,8 +1,11 @@
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
+import UserContext from 'src/context/userContext';
 
-import { useCreateCompany } from 'src/api/companies';
+import { useCreateCompany, useGetCompanyDetails, useUpdateCompany } from 'src/api/companies';
+import { type IUpdateCompanyPayload } from 'src/api/companies/types';
 import { useGetServiceOptions } from 'src/api/options';
 
 import { Box, Button, Stack } from '@mui/material';
@@ -14,16 +17,23 @@ import { useDefaultValues } from './useDefaultValues';
 import { type TFormValues, validationSchema } from './validationSchema';
 
 const FormContainer = () => {
-  const defaultValues = useDefaultValues();
-
   const navigate = useNavigate();
-  const { data, isPending: isOptionLoading } = useGetServiceOptions();
-  const { mutate, isPending } = useCreateCompany();
+  const { id } = useParams();
+  const { user } = useContext(UserContext);
+  const { data, isPending: isDataLoading } = useGetCompanyDetails(id ?? '');
+  const { data: options, isPending: isOptionLoading } = useGetServiceOptions();
+  const { mutate: createMutation, isPending: isCreateLoading } = useCreateCompany();
+  const { mutate: updateMutation, isPending: isUpdateLoading } = useUpdateCompany();
+  const defaultValues = useDefaultValues(data);
 
   const formBag = useForm<TFormValues>({
     defaultValues,
     resolver: yupResolver(validationSchema),
   });
+
+  useEffect(() => {
+    formBag.reset(defaultValues);
+  }, [defaultValues, formBag.reset]);
 
   //   useEffect(() => {
   //     const handleErrorScroll = (errors: any) => {
@@ -42,11 +52,24 @@ const FormContainer = () => {
   //   }, [formBag.formState.errors]);
 
   const onSubmit = (values: TFormValues) => {
-    mutate(values);
+    if (!id) {
+      createMutation(values);
+    } else {
+      const updatedData: IUpdateCompanyPayload = {
+        id,
+        body: {
+          ...values,
+          update_user_id: user?.id,
+        },
+      };
+      updateMutation(updatedData);
+    }
   };
 
+  const isLoading = isCreateLoading || isUpdateLoading || isDataLoading;
+
   return (
-    <LoaderOverlay loading={isPending} size={30}>
+    <LoaderOverlay loading={isLoading} size={30}>
       <Box width="67%">
         <CustomFormProvider form={formBag} onSubmit={onSubmit}>
           <Grid container spacing={5} height="100%">
@@ -113,7 +136,7 @@ const FormContainer = () => {
                 defaultValue=""
                 name="service_id"
                 label="Servis xidməti"
-                items={data ?? []}
+                items={options ?? []}
                 loading={isOptionLoading}
               />
             </Grid>

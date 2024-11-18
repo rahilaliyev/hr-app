@@ -6,7 +6,7 @@ import { type TFormValues } from 'src/pages/CompanyPage/CompanyAddEditPage/compo
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type ICompanies } from './types';
+import { type ICompanies, type IUpdateCompanyPayload } from './types';
 
 import { ROUTES } from 'src/routes/const';
 import { type IPaginateData } from 'src/ts/interface';
@@ -20,6 +20,7 @@ export const useGetCompanies = (page: number) => {
       });
       return res.data;
     },
+    refetchOnMount: true,
   });
 };
 
@@ -48,6 +49,7 @@ export const useGetCompanyDetails = (id: string) => {
       return res.data;
     },
     enabled: !!id,
+    refetchOnMount: true,
   });
 };
 
@@ -66,6 +68,28 @@ export const useCreateCompany = () => {
       void queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.COMPANIES],
       });
+    },
+  });
+};
+
+export const useUpdateCompany = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const mutationFn = async ({ id, body }: IUpdateCompanyPayload): Promise<void> => {
+    await api.put(`/companies/${id}`, body);
+  };
+
+  return useMutation({
+    mutationFn,
+    onSuccess: (_, { id }) => {
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.COMPANIES],
+      });
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.COMPANY_DETAILS, id],
+      });
+      navigate(ROUTES.COMPANIES.PATH);
     },
   });
 };
