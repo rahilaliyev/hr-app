@@ -21,6 +21,7 @@ export const textFieldTheme: Components = {
         },
       },
       input: {
+        fontSize: '14px',
         padding: '10px 12px !important',
         height: '20px',
       },

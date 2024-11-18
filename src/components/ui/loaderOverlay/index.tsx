@@ -4,11 +4,22 @@ type TLoaderSpinnerProps = CircularProgressProps & {
   loading: boolean;
   children: React.ReactNode;
   height?: string | number;
+  margin?: number;
+  size?: number;
 };
 
-export const LoaderOverlay = ({ loading, children, height = 'unset', ...props }: TLoaderSpinnerProps) => {
+export const LoaderOverlay = ({
+  loading,
+  children,
+  height = 'unset',
+  size = 30,
+  margin,
+  ...props
+}: TLoaderSpinnerProps) => {
   return loading ? (
     <Box
+      width="100%"
+      m={margin ?? 5}
       sx={{
         display: 'flex',
         alignItems: 'center',
@@ -18,7 +29,7 @@ export const LoaderOverlay = ({ loading, children, height = 'unset', ...props }:
     >
       <CircularProgress
         color="primary"
-        size={20}
+        size={size}
         value={20}
         thickness={5}
         sx={(theme) => ({

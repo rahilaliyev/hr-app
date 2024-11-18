@@ -10,6 +10,8 @@ import { DownloadIcon } from './download';
 import { EmployeeIcon } from './employee';
 import { FilterIcon } from './filter';
 import { InfoCircleIcon } from './info-circle';
+import { LeftArrowIcon } from './leftArrow';
+import { PencilIcon } from './pencil';
 import { SearchIcon } from './search';
 import { TrashIcon } from './trash';
 
@@ -26,6 +28,8 @@ export {
   EmployeeIcon,
   FilterIcon,
   InfoCircleIcon,
+  LeftArrowIcon,
+  PencilIcon,
   SearchIcon,
   TrashIcon,
 };

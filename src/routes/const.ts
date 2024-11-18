@@ -7,6 +7,9 @@ export const ROUTES = {
   },
   COMPANIES: {
     PATH: `${BASE_PATH}/companies`,
+    ADD: `${BASE_PATH}/companies/add`,
+    DETAIL: `${BASE_PATH}/companies/detail/:id`,
+    EDIT: `${BASE_PATH}/companies/edit/:id`,
   },
   EMPLOYEES: {
     PATH: `${BASE_PATH}/employees`,
