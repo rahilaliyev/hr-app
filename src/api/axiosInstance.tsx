@@ -4,7 +4,9 @@ import axios, {
   type AxiosRequestConfig,
   type AxiosResponse,
   type InternalAxiosRequestConfig,
+  type Method,
 } from 'axios';
+import { enqueueSnackbar } from 'notistack';
 import qs from 'qs';
 
 import { getAccessToken, removeAuthCookies } from 'src/utils/cookie';
@@ -42,19 +44,27 @@ const onRequestSend = (config: InternalAxiosRequestConfig): InternalAxiosRequest
 
 const onRequestError = (error: AxiosError) => Promise.reject(error);
 
-const onResponseSuccess = (config: AxiosResponse): AxiosResponse => config;
+const onResponseSuccess = (res: AxiosResponse): Promise<AxiosResponse> => {
+  const mutationMethods: Method[] = ['put', 'delete', 'post', 'PUT', 'DELETE', 'POST'];
 
-const onResponseFailed = (error: AxiosError | Error): AxiosError => {
+  if (mutationMethods.includes(res.config.method as Method)) {
+    enqueueSnackbar({ message: 'Uğurlu əməliyyat', variant: 'success' });
+  }
+
+  return Promise.resolve(res);
+};
+
+const onResponseFailed = (error: AxiosError | Error): Promise<AxiosError> => {
   if (axios.isAxiosError(error)) {
     const { message } = error;
     const { method, url } = error.config as AxiosRequestConfig;
-    const { statusText, status } = error.response ?? {};
+    const { data, status } = error.response ?? {};
 
     console.error('Error Details:', {
       method,
       url,
       status,
-      statusText,
+      statusText: data.message,
       message,
     });
 
@@ -62,21 +72,15 @@ const onResponseFailed = (error: AxiosError | Error): AxiosError => {
       case 401:
         removeAuthCookies();
         window.location.href = '/auth/login';
-        break;
-      case 403:
-        console.warn('403 Access forbidden - you do not have permission');
-        break;
-      case 404:
-        console.warn('404 Requested resource not found');
+        enqueueSnackbar({ message: data.message, variant: 'error' });
         break;
       default:
-        console.warn('An unexpected error occurred' + status);
+        enqueueSnackbar({ message: data.message, variant: 'error' });
     }
+    return Promise.reject(error);
   } else {
-    console.error('An unexpected error occurred:', error.message);
+    return Promise.reject(new Error('Unexpected error'));
   }
-
-  return error as AxiosError;
 };
 
 api.interceptors.request.use(onRequestSend, onRequestError);

@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useGetCompanies } from 'src/api/companies';
 
 import { Breadcrumbs, Button, InputAdornment, Link, Stack, TextField, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import { Panel } from 'src/components';
-import { CustomTablePagination } from 'src/components/ui/tablePagination';
+import { CustomTablePagination, Panel } from 'src/components';
 
 import { tableFields } from './fields';
 
@@ -15,9 +15,14 @@ import { ROUTES } from 'src/routes/const';
 import { AddIcon, DownloadIcon, FilterIcon, SearchIcon } from 'src/assets/icons';
 
 const CompanyPage = () => {
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
   const { data, isLoading } = useGetCompanies(page);
+
+  const handleNavigateAdd = () => {
+    navigate(ROUTES.COMPANIES.ADD);
+  };
 
   return (
     <Panel>
@@ -68,6 +73,7 @@ const CompanyPage = () => {
               <DownloadIcon />
             </Button>
             <Button
+              onClick={handleNavigateAdd}
               sx={{
                 '& svg path': {
                   stroke: (theme) => theme.palette.common.white,

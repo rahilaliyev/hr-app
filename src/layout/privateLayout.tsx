@@ -6,7 +6,7 @@ import UserContext from 'src/context/userContext';
 import { useGetUserDetailsById } from 'src/api/login';
 import { type IAuthToken } from 'src/api/login/types';
 
-import { Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 import { CompanyModal, Header, Sidebar } from './components';
 
@@ -33,16 +33,18 @@ const PrivateLayout = () => {
     <Stack height="100%" alignItems="flex-start">
       <CompanyModal open={open} setOpen={setOpen} disableClose={true} />
       <Sidebar />
-      <Stack
-        flexDirection="column"
+      <Box
         height="100%"
         sx={{
           width: (theme) => `calc(100% - ${theme.spacing(60)})`,
+          overflow: 'hidden',
         }}
       >
         <Header />
-        <Outlet />
-      </Stack>
+        <Box overflow="auto" height="calc(100vh - 73px)">
+          <Outlet />
+        </Box>
+      </Box>
     </Stack>
   );
 };

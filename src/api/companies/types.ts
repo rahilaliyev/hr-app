@@ -1,3 +1,5 @@
+import { type IServiceId } from '../options/types';
+
 import { type ID } from 'src/ts/interface';
 
 export interface ICompanies extends ID {
@@ -17,7 +19,7 @@ export interface ICompanies extends ID {
   kod: string;
   name: string;
   poct_index: string;
-  service_id: number;
+  service_id: IServiceId;
   status: number;
   sun: string;
   swift: string;

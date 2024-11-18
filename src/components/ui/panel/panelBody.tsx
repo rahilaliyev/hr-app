@@ -8,7 +8,14 @@ interface IPanel {
 }
 
 export const PanelBody = ({ sx, children }: IPanel) => (
-  <Stack mt={5} flexDirection="column" width="100%" sx={[...(Array.isArray(sx) ? sx : [sx])]}>
+  <Stack
+    mt={5}
+    justifyContent="flex-start"
+    alignItems="flex-start"
+    flexDirection="column"
+    width="100%"
+    sx={[...(Array.isArray(sx) ? sx : [sx])]}
+  >
     {children}
   </Stack>
 );

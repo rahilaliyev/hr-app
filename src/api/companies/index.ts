@@ -1,10 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
+import { type TFormValues } from 'src/pages/CompanyPage/CompanyAddEditPage/components/validationSchema';
 
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
 import { type ICompanies } from './types';
 
+import { ROUTES } from 'src/routes/const';
 import { type IPaginateData } from 'src/ts/interface';
 
 export const useGetCompanies = (page: number) => {
@@ -29,6 +33,36 @@ export const useDeleteCompany = () => {
   return useMutation({
     mutationFn,
     onSuccess: () => {
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.COMPANIES],
+      });
+    },
+  });
+};
+
+export const useGetCompanyDetails = (id: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.COMPANY_DETAILS, id],
+    queryFn: async () => {
+      const res = await api.get<ICompanies>(`/companies/${id}`);
+      return res.data;
+    },
+    enabled: !!id,
+  });
+};
+
+export const useCreateCompany = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const mutationFn = async (body: TFormValues): Promise<void> => {
+    await api.post(`/companies`, body);
+  };
+
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      navigate(ROUTES.COMPANIES.PATH);
       void queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.COMPANIES],
       });
