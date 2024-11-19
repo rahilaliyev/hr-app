@@ -6,6 +6,7 @@ npm run check-format ||
     ƏZİZ DEVELOPERİM, Prettier-də xəta var. NPM RUN FORMAT command`ını işə sal sonra git commit et!';
     false;
 )
+echo 'Kodlar Prettier-dən uğurla keçdi'
 # Check ESLint Standards
 npm run check-lint ||
 (
@@ -13,6 +14,7 @@ npm run check-lint ||
         ƏZİZ DEVELOPERİM, ESLint-də xəta var. Göstərilən faylda düzəlişi et, sonra git commit et!'
         false;
 )
+echo 'EsLint-dən uğurla keçdi'
 # Check tsconfig standards
 npm run check-types ||
 (
@@ -23,7 +25,7 @@ npm run check-types ||
     false;
 )
 # If everything passes... Now we can commit
-echo 'OBAAAAAAA ESLint Prettier və TypeScriptdən kodların keçdi. Görək build prosesindən keçəçəkmi?'
+echo 'OBAAAAAAA ESLint Prettier və TypeScriptdən kodların keçib. Görək build prosesindən keçəçəkmi?'
 npm run build ||
 (
     echo 'BUILD prosesində xəta var
