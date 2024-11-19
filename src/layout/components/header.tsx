@@ -25,8 +25,6 @@ export const Header = () => {
     [company, data],
   );
 
-  console.log(data);
-
   const handleClickProfile = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorProfile(event.currentTarget);
   };
