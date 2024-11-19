@@ -88,9 +88,9 @@ const TableActions = (props: ITableActionsProps) => {
       <Button
         sx={{ padding: (theme) => `${theme.spacing(2.25, 4)} !important` }}
         onClick={handleFirstPageButtonClick}
-        disabled={page === 1}
+        disabled={page === 0}
         aria-label="first page"
-        variant={page === 1 ? 'contained' : 'outlined'}
+        variant={page === 0 ? 'contained' : 'outlined'}
       >
         <ChevronDoubleLeftIcon />
         <Box component="span" ml={2}>
@@ -100,9 +100,9 @@ const TableActions = (props: ITableActionsProps) => {
       <Button
         sx={{ padding: (theme) => `${theme.spacing(2.25, 4)} !important` }}
         onClick={handleBackButtonClick}
-        disabled={page === 1}
+        disabled={page === 0}
         aria-label="previous page"
-        variant={page === 1 ? 'contained' : 'outlined'}
+        variant={page === 0 ? 'contained' : 'outlined'}
       >
         <ChevronLeftIcon />
         <Box component="span" ml={2}>

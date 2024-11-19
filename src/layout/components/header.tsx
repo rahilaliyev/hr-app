@@ -18,7 +18,7 @@ export const Header = () => {
   const [anchorProfile, setAnchorProfile] = useState<null | HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const { company } = useContext(UserContext);
-  const { data } = useGetCompanies(1);
+  const { data } = useGetCompanies(0);
 
   const companyName = useMemo(
     () => data?.data?.find((el) => el?.id?.toString() === company)?.name,

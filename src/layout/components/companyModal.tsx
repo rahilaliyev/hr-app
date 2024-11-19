@@ -21,7 +21,7 @@ export const CompanyModal = ({ open, setOpen, disableClose = false }: ICompanyMo
   const navigate = useNavigate();
   const { setCompany } = useContext(UserContext);
   const [selectedCompany, setSelectedCompany] = useState('');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const { data, isLoading } = useGetCompanies(page);
 
   const handleClose = (_: unknown, reason: 'backdropClick' | 'escapeKeyDown') => {
