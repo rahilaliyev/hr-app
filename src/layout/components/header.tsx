@@ -18,12 +18,14 @@ export const Header = () => {
   const [anchorProfile, setAnchorProfile] = useState<null | HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const { company } = useContext(UserContext);
-  const { data } = useGetCompanies(1);
+  const { data } = useGetCompanies(0);
 
   const companyName = useMemo(
     () => data?.data?.find((el) => el?.id?.toString() === company)?.name,
     [company, data],
   );
+
+  console.log(data);
 
   const handleClickProfile = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorProfile(event.currentTarget);

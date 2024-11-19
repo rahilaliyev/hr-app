@@ -16,7 +16,7 @@ export const useGetCompanies = (page: number) => {
     queryKey: [QUERY_KEYS.COMPANIES, page],
     queryFn: async () => {
       const res = await api.get<IPaginateData<ICompanies[]>>('/companies', {
-        params: { page },
+        params: { page: page + 1 },
       });
       return res.data;
     },

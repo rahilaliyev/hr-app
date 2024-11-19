@@ -16,7 +16,7 @@ import { AddIcon, DownloadIcon, FilterIcon, SearchIcon } from 'src/assets/icons'
 
 const CompanyPage = () => {
   const navigate = useNavigate();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(5);
   const { data, isLoading } = useGetCompanies(page);
 
