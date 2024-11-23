@@ -14,6 +14,7 @@ const CompanyPage = lazy(() => import('src/pages/CompanyPage'));
 const CompanyDetailPage = lazy(() => import('src/pages/CompanyPage/CompanyDetailPage'));
 const CompanyEditPage = lazy(() => import('src/pages/CompanyPage/CompanyAddEditPage'));
 const CompanyAddPage = lazy(() => import('src/pages/CompanyPage/CompanyAddEditPage'));
+const UserPage = lazy(() => import('src/pages/UserPage'));
 const EmployeePage = lazy(() => import('src/pages/EmployeePage'));
 
 const RouteComponents = () => {
@@ -27,6 +28,9 @@ const RouteComponents = () => {
           <Route path={ROUTES.COMPANIES.DETAIL} element={suspenseFallback(CompanyDetailPage)} />
           <Route path={ROUTES.COMPANIES.EDIT} element={suspenseFallback(CompanyEditPage)} />
           <Route path={ROUTES.COMPANIES.ADD} element={suspenseFallback(CompanyAddPage)} />
+        </Route>
+        <Route path={ROUTES.USERS.PATH}>
+          <Route index element={suspenseFallback(UserPage)} />
         </Route>
         <Route path={ROUTES.EMPLOYEES.PATH} element={suspenseFallback(EmployeePage)} />
       </Route>

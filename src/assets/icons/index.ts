@@ -14,6 +14,7 @@ import { LeftArrowIcon } from './leftArrow';
 import { PencilIcon } from './pencil';
 import { SearchIcon } from './search';
 import { TrashIcon } from './trash';
+import { UserIcon } from './user';
 
 export {
   AddIcon,
@@ -32,4 +33,5 @@ export {
   PencilIcon,
   SearchIcon,
   TrashIcon,
+  UserIcon,
 };

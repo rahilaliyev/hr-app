@@ -1,6 +1,7 @@
 export { CustomFormProvider } from './form/formProvider';
 export { SelectField } from './form/selectField';
 export { CustomTextField } from './form/textField';
+export { Breadcrumb } from './ui/breadcrumb';
 export { ConfirmModal } from './ui/confirmModal';
 export { Description, DescriptionContainer } from './ui/description';
 export { GoBackButton } from './ui/goBackButton';
