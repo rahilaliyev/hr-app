@@ -1,27 +1,25 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetCompanies } from 'src/api/companies';
+import { useGetUsers } from 'src/api/users';
 
 import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import { Breadcrumb, CustomTablePagination, Panel } from 'src/components';
+import { Breadcrumb, Panel } from 'src/components';
 
 import { tableFields } from './fields';
 
 import { ROUTES } from 'src/routes/const';
 
-import { AddIcon, DownloadIcon, FilterIcon, SearchIcon } from 'src/assets/icons';
+import { AddIcon, FilterIcon, SearchIcon } from 'src/assets/icons';
 
-const CompanyPage = () => {
+const UserPage = () => {
   const navigate = useNavigate();
-  const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(5);
-  const { data, isLoading } = useGetCompanies(page);
+
+  const { data, isLoading } = useGetUsers();
 
   const handleNavigateAdd = () => {
-    navigate(ROUTES.COMPANIES.ADD);
+    navigate(ROUTES.USERS.ADD);
   };
 
   return (
@@ -30,11 +28,11 @@ const CompanyPage = () => {
         <Breadcrumb
           items={[
             { label: 'Ana səhifə', href: ROUTES.DEFAULT.PATH },
-            { label: 'Şirkətlər', href: ROUTES.COMPANIES.PATH, active: true },
+            { label: 'İstifadəçilər', href: ROUTES.USERS.PATH, active: true },
           ]}
         />
         <Typography variant="h5" my={3} color="secondary.dark">
-          Şirkətlər
+          İstifadəçilər
         </Typography>
         <Stack justifyContent="space-between" width="100%">
           <Stack gap={4}>
@@ -57,12 +55,6 @@ const CompanyPage = () => {
             </Button>
           </Stack>
           <Stack gap={2}>
-            <Button variant="outlined">
-              <Typography variant="subtitle1" mr={2} fontWeight={600}>
-                Excel-ə çıxart
-              </Typography>
-              <DownloadIcon />
-            </Button>
             <Button
               onClick={handleNavigateAdd}
               sx={{
@@ -79,21 +71,13 @@ const CompanyPage = () => {
           </Stack>
         </Stack>
       </Panel.Header>
-
       <Panel.Body>
         <Stack width="100%" height="100%">
-          <DataGrid columns={tableFields} rows={data?.data} loading={isLoading} />
+          <DataGrid getRowHeight={() => 'auto'} columns={tableFields} rows={data} loading={isLoading} />
         </Stack>
-        <CustomTablePagination
-          page={page}
-          pageSize={pageSize}
-          setPage={setPage}
-          setPageSize={setPageSize}
-          total={data?.total}
-        />
       </Panel.Body>
     </Panel>
   );
 };
 
-export default CompanyPage;
+export default UserPage;

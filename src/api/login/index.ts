@@ -15,7 +15,7 @@ export const useLoginMutation = () =>
 
 export const useGetUserDetailsById = (id: string) => {
   return useQuery({
-    queryKey: [QUERY_KEYS.USER.USER_DETAILS, id],
+    queryKey: [QUERY_KEYS.USER_DETAILS, id],
     queryFn: async () => {
       const res = await api.get<IUserDetails>(`/users/${id}`);
       return res.data;

@@ -1,6 +1,6 @@
 import { ROUTES } from 'src/routes/const';
 
-import { CategoryIcon, EmployeeIcon } from 'src/assets/icons';
+import { CategoryIcon, EmployeeIcon, UserIcon } from 'src/assets/icons';
 
 interface IMenuItem {
   href: string;
@@ -10,6 +10,11 @@ interface IMenuItem {
 
 export const useMenuItems = () => {
   const menuItems: IMenuItem[] = [
+    {
+      href: ROUTES.USERS.PATH,
+      label: 'İstifadəçilər',
+      icon: <UserIcon />,
+    },
     {
       href: ROUTES.COMPANIES.PATH,
       label: 'Şirkətlər',

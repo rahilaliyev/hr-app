@@ -3,9 +3,16 @@ import { theme } from 'src/theme';
 
 import { useGetCompanyDetails } from 'src/api/companies';
 
-import { Breadcrumbs, IconButton, Link, Stack, Tooltip, Typography } from '@mui/material';
+import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 
-import { Description, DescriptionContainer, GoBackButton, LoaderOverlay, Panel } from 'src/components';
+import {
+  Breadcrumb,
+  Description,
+  DescriptionContainer,
+  GoBackButton,
+  LoaderOverlay,
+  Panel,
+} from 'src/components';
 
 import { ROUTES } from 'src/routes/const';
 
@@ -25,24 +32,13 @@ const CompanyDetail = () => {
     <LoaderOverlay loading={isLoading} size={30}>
       <Panel>
         <Panel.Header>
-          <Breadcrumbs
-            aria-label="breadcrumb"
-            sx={{
-              fontSize: (theme) => theme.typography.caption,
-            }}
-          >
-            <Link underline="hover" color="inherit" href={ROUTES.DEFAULT.PATH}>
-              <Typography variant="caption">Ana səhifə</Typography>
-            </Link>
-            <Link underline="hover" color="inherit" href={ROUTES.COMPANIES.PATH}>
-              <Typography variant="caption">Şirkətlər</Typography>
-            </Link>
-            <Link underline="hover" color="inherit" href={`${ROUTES.COMPANIES.PATH}/detail/${id}`}>
-              <Typography variant="caption" sx={{ color: 'text.primary' }}>
-                {data?.name}
-              </Typography>
-            </Link>
-          </Breadcrumbs>
+          <Breadcrumb
+            items={[
+              { label: 'Ana səhifə', href: ROUTES.DEFAULT.PATH },
+              { label: 'Şirkətlər', href: ROUTES.COMPANIES.PATH },
+              { label: data?.name ?? 'Detail', href: `${ROUTES.COMPANIES.PATH}/detail/${id}`, active: true },
+            ]}
+          />
           <Stack gap={2}>
             <GoBackButton />
             <Typography variant="h5" my={3} color="secondary.dark">

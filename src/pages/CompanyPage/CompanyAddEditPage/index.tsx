@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 
-import { Breadcrumbs, Link, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
-import { GoBackButton, Panel } from 'src/components';
+import { Breadcrumb, GoBackButton, Panel } from 'src/components';
 
 import FormContainer from './components/formContainer';
 
@@ -13,28 +13,17 @@ const CompanyAddEditPage = () => {
   return (
     <Panel>
       <Panel.Header>
-        <Breadcrumbs
-          aria-label="breadcrumb"
-          sx={{
-            fontSize: (theme) => theme.typography.caption,
-          }}
-        >
-          <Link underline="hover" color="inherit" href={ROUTES.DEFAULT.PATH}>
-            <Typography variant="caption">Ana səhifə</Typography>
-          </Link>
-          <Link underline="hover" color="inherit" href={ROUTES.COMPANIES.PATH}>
-            <Typography variant="caption">Şirkətlər</Typography>
-          </Link>
-          <Link
-            underline="hover"
-            color="inherit"
-            href={id ? `${ROUTES.COMPANIES.PATH}/edit/${id}` : ROUTES.COMPANIES.ADD}
-          >
-            <Typography variant="caption" sx={{ color: 'text.primary' }}>
-              {!id ? 'Yeni şirkət' : 'Düzəliş et'}
-            </Typography>
-          </Link>
-        </Breadcrumbs>
+        <Breadcrumb
+          items={[
+            { label: 'Ana səhifə', href: ROUTES.DEFAULT.PATH },
+            { label: 'Şirkətlər', href: ROUTES.COMPANIES.PATH },
+            {
+              label: !id ? 'Yeni şirkət' : 'Düzəliş et',
+              href: id ? `${ROUTES.COMPANIES.PATH}/edit/${id}` : ROUTES.COMPANIES.ADD,
+              active: true,
+            },
+          ]}
+        />
         <Stack gap={2}>
           <GoBackButton />
           <Typography variant="h5" my={3} color="secondary.dark">

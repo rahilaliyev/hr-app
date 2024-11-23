@@ -34,9 +34,14 @@ export const api = axios.create({
 
 const onRequestSend = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
   const token = getAccessToken();
+  const companyId = localStorage.getItem('company');
 
   if (typeof token === 'string') {
     config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  if (companyId) {
+    config.headers['Accept-Company'] = companyId;
   }
 
   return config;
