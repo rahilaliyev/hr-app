@@ -52,7 +52,7 @@ const CompanyDetail = () => {
           </Stack>
         </Panel.Header>
         <Panel.Body>
-          <DescriptionContainer fullwidth>
+          <DescriptionContainer>
             <Description label="Şirkətin adı" content={data?.name} />
             <Description label="VÖEN" content={data?.voen} />
             <Description label="SUN" content={data?.sun} />

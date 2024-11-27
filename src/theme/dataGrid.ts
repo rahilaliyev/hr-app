@@ -17,6 +17,7 @@ export const dataGridTheme: DataGridComponents = {
         fontFamily: 'Manrope, sans-serif',
         border: `1px solid ${colorPalette.grey[200]}`,
         borderRadius: '8px',
+        '--DataGrid-scrollbarSize': '10px',
       },
       main: {
         width: '100%',

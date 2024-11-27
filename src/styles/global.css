@@ -31,6 +31,7 @@ a {
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 /* Track */
@@ -49,10 +50,6 @@ a {
   background: #cacdd3;
 }
 
-::-webkit-scrollbar-button:hover {
-  background-color: red;
-}
-
 /* Up arrow */
 ::-webkit-scrollbar-button:vertical:decrement {
   background: url('./scrollbarSvgs/up-scroll.svg') no-repeat center center;
@@ -63,5 +60,17 @@ a {
 /* Down arrow */
 ::-webkit-scrollbar-button:vertical:increment {
   background: url('./scrollbarSvgs/down-scroll.svg') no-repeat center center;
+  background-size: contain;
+}
+
+/* Left arrow (for horizontal scrollbar) */
+::-webkit-scrollbar-button:horizontal:decrement {
+  background: url('./scrollbarSvgs/left-scroll.svg') no-repeat center center;
+  background-size: contain;
+}
+
+/* Right arrow (for horizontal scrollbar) */
+::-webkit-scrollbar-button:horizontal:increment {
+  background: url('./scrollbarSvgs/right-scroll.svg') no-repeat center center;
   background-size: contain;
 }

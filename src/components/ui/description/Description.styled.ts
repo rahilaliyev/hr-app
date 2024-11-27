@@ -7,9 +7,7 @@ export const StyledDescriptionContainer = styled('table', {
   shouldForwardProp: (prop) => prop !== 'fullwidth',
 })<{ fullwidth: boolean }>(({ theme, fullwidth }) => ({
   width: fullwidth ? '100%' : 'max-content',
-  border: `${theme.spacing(0.5)} solid ${theme.palette.grey[200]}`,
   borderRadius: theme.spacing(2),
-  padding: theme.spacing(6, 5),
   '& td': {
     padding: theme.spacing(1),
   },
@@ -22,13 +20,13 @@ export const StyledDescriptionContainer = styled('table', {
 }));
 
 export const StyledLabelBox = styled(Box)(({ theme }) => ({
-  fontSize: theme.spacing(3),
+  fontSize: theme.spacing(3.5),
   lineHeight: theme.spacing(5),
   color: colorPalette.grey[500],
 }));
 
 export const StyledContentBox = styled(Box)(({ theme }) => ({
-  fontSize: theme.spacing(3),
+  fontSize: theme.spacing(3.5),
   lineHeight: theme.spacing(5),
   fontWeight: 600,
   color: colorPalette.secondary.dark,
