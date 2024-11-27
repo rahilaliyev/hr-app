@@ -43,6 +43,7 @@ export const StyledNavbar = styled(Stack)(({ theme }) => ({
       display: 'flex',
       alignItems: 'center',
       fontWeight: 400,
+      letterSpacing: '0.07px',
     },
     '& svg': {
       marginRight: theme.spacing(3),
