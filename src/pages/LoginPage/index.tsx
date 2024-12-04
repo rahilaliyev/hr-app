@@ -1,6 +1,8 @@
+import { type KeyboardEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { enqueueSnackbar } from 'notistack';
 
 import { useLoginMutation } from 'src/api/login';
 import { type ILoginPayload } from 'src/api/login/types';
@@ -17,6 +19,8 @@ import { setAuthCookies } from 'src/utils';
 const LoginPage = () => {
   const navigate = useNavigate();
   const { mutate, isPending } = useLoginMutation();
+  const [isCapsLockOn, setIsCapsLockOn] = useState(false);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const form = useForm<ILoginPayload>({
     defaultValues: {
       username: '',
@@ -24,6 +28,12 @@ const LoginPage = () => {
     },
     resolver: yupResolver(validationSchema),
   });
+
+  useEffect(() => {
+    if (isCapsLockOn && isPasswordFocused) {
+      enqueueSnackbar({ message: 'Caps Lock açıqdır', variant: 'warning' });
+    }
+  }, [isCapsLockOn, isPasswordFocused]);
 
   const _onSubmit = (data: ILoginPayload) => {
     mutate(data, {
@@ -34,6 +44,18 @@ const LoginPage = () => {
     });
   };
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.getModifierState('CapsLock')) {
+      setIsCapsLockOn(true);
+    }
+  };
+
+  const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (!e.getModifierState('CapsLock')) {
+      setIsCapsLockOn(false);
+    }
+  };
+
   return (
     <LoaderOverlay loading={isPending}>
       <CustomFormProvider form={form} onSubmit={_onSubmit}>
@@ -41,7 +63,20 @@ const LoginPage = () => {
           Daxil olun
         </Typography>
         <CustomTextField name="username" label="İstifadəçi adı" />
-        <CustomTextField type="password" name="password" label="Şifrə" />
+        <CustomTextField
+          type="password"
+          name="password"
+          label="Şifrə"
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
+          onFocus={() => {
+            setIsPasswordFocused(true);
+          }}
+          onBlur={() => {
+            setIsCapsLockOn(false);
+            setIsPasswordFocused(false);
+          }}
+        />
         <Typography marginBottom={2} variant="subtitle2" component="p" textAlign="right">
           <Link to={ROUTES.AUTH.FORGOT_PASSWORD.PATH}>Şifrəni unutmusunuz?</Link>
         </Typography>

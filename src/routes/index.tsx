@@ -15,6 +15,9 @@ const CompanyDetailPage = lazy(() => import('src/pages/CompanyPage/CompanyDetail
 const CompanyEditPage = lazy(() => import('src/pages/CompanyPage/CompanyAddEditPage'));
 const CompanyAddPage = lazy(() => import('src/pages/CompanyPage/CompanyAddEditPage'));
 const UserPage = lazy(() => import('src/pages/UserPage'));
+const UserDetailPage = lazy(() => import('src/pages/UserPage/UserDetailPage'));
+const UserEditPage = lazy(() => import('src/pages/UserPage/UserAddEditPage'));
+const UserAddPage = lazy(() => import('src/pages/UserPage/UserAddEditPage'));
 const EmployeePage = lazy(() => import('src/pages/EmployeePage'));
 
 const RouteComponents = () => {
@@ -25,12 +28,15 @@ const RouteComponents = () => {
         <Route index element={suspenseFallback(HomePage)} />
         <Route path={ROUTES.COMPANIES.PATH}>
           <Route index element={suspenseFallback(CompanyPage)} />
-          <Route path={ROUTES.COMPANIES.DETAIL} element={suspenseFallback(CompanyDetailPage)} />
-          <Route path={ROUTES.COMPANIES.EDIT} element={suspenseFallback(CompanyEditPage)} />
           <Route path={ROUTES.COMPANIES.ADD} element={suspenseFallback(CompanyAddPage)} />
+          <Route path={ROUTES.COMPANIES.EDIT} element={suspenseFallback(CompanyEditPage)} />
+          <Route path={ROUTES.COMPANIES.DETAIL} element={suspenseFallback(CompanyDetailPage)} />
         </Route>
         <Route path={ROUTES.USERS.PATH}>
           <Route index element={suspenseFallback(UserPage)} />
+          <Route path={ROUTES.USERS.ADD} element={suspenseFallback(UserAddPage)} />
+          <Route path={ROUTES.USERS.EDIT} element={suspenseFallback(UserEditPage)} />
+          <Route path={ROUTES.USERS.DETAIL} element={suspenseFallback(UserDetailPage)} />
         </Route>
         <Route path={ROUTES.EMPLOYEES.PATH} element={suspenseFallback(EmployeePage)} />
       </Route>

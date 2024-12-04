@@ -27,6 +27,24 @@ interface IEmployee extends ID {
   updated_at: string;
 }
 
+interface IRole {
+  company_id: number;
+  created_at: Date;
+  id: number;
+  name: string;
+  permission: string[];
+  updated_at: Date;
+}
+
+interface IRoleGroups {
+  company_id: number;
+  created_at: Date;
+  id: number;
+  name: string;
+  roles: IRole[];
+  updated_at: Date;
+}
+
 export interface IUsers extends ID {
   companies: ICompanies[];
   created_at: string;
@@ -40,4 +58,7 @@ export interface IUsers extends ID {
   status: boolean;
   updated_at: string;
   username: string;
+  permission: string[];
+  roleGroups: IRoleGroups[];
+  roles: IRole;
 }
