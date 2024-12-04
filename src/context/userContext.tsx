@@ -1,14 +1,14 @@
 import { createContext, type ReactNode, useState } from 'react';
 
-import { type IUserDetails } from 'src/api/login/types';
+import { type IUsers } from 'src/api/users/types';
 
 import { COMPANY_ID } from 'src/constants';
 
 interface IUserContext {
   company: string | null;
   setCompany: React.Dispatch<React.SetStateAction<string>>;
-  user: IUserDetails | null;
-  setUser: React.Dispatch<React.SetStateAction<IUserDetails | null>>;
+  user: IUsers | null;
+  setUser: React.Dispatch<React.SetStateAction<IUsers | null>>;
 }
 
 const UserContext = createContext<IUserContext>({
@@ -26,7 +26,7 @@ interface IUserProviderProps {
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const localCompany = localStorage.getItem(COMPANY_ID);
-  const [user, setUser] = useState<IUserDetails | null>(null);
+  const [user, setUser] = useState<IUsers | null>(null);
   const [company, setCompany] = useState(localCompany ?? '');
 
   const contextData = {

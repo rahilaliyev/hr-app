@@ -3,8 +3,8 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import UserContext from 'src/context/userContext';
 
-import { useGetUserDetailsById } from 'src/api/login';
 import { type IAuthToken } from 'src/api/login/types';
+import { useGetUserDetails } from 'src/api/users';
 
 import { Box, Stack } from '@mui/material';
 
@@ -21,7 +21,7 @@ const PrivateLayout = () => {
   }
 
   const { sub } = jwtDecode<IAuthToken>(token);
-  const { data: userDetails, isSuccess } = useGetUserDetailsById(sub);
+  const { data: userDetails, isSuccess } = useGetUserDetails(sub);
   const { company, setUser } = useContext(UserContext);
   const [open, setOpen] = useState(!company);
 

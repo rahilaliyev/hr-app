@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useDeleteCompany } from 'src/api/companies';
+import { useDeleteUser } from 'src/api/users';
 
 import { IconButton, Stack, Tooltip } from '@mui/material';
 
@@ -15,7 +15,7 @@ import { InfoCircleIcon, PencilIcon, TrashIcon } from 'src/assets/icons';
 const TableActions = ({ id }: ID) => {
   const navigate = useNavigate();
   const [isDeleteModal, setIsDeleteModal] = useState(false);
-  const { mutate } = useDeleteCompany();
+  const { mutate } = useDeleteUser();
 
   const handleConfirm = () => {
     mutate(id, {
@@ -26,11 +26,11 @@ const TableActions = ({ id }: ID) => {
   };
 
   const handleNavigateDetails = () => {
-    navigate(`${ROUTES.COMPANIES.PATH}/detail/${id}`);
+    navigate(`${ROUTES.USERS.PATH}/detail/${id}`);
   };
 
   const handleNavigateEdit = () => {
-    navigate(`${ROUTES.COMPANIES.PATH}/edit/${id}`);
+    navigate(`${ROUTES.USERS.PATH}/edit/${id}`);
   };
 
   const handleOpenModal = () => {
@@ -84,7 +84,7 @@ const TableActions = ({ id }: ID) => {
           }}
           onConfirm={handleConfirm}
         >
-          Bu əməliyyat daimidir və geri qaytarıla bilməz. Şirkəti silmək istədiyinizə əminsiniz?
+          Bu əməliyyat daimidir və geri qaytarıla bilməz. İstifadəçini silmək istədiyinizə əminsiniz?
         </ConfirmModal>
       </Stack>
     </>
