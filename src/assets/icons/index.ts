@@ -8,6 +8,8 @@ import { ChevronLeftIcon } from './chevronLeft';
 import { ChevronRightIcon } from './chevronRight';
 import { DownloadIcon } from './download';
 import { EmployeeIcon } from './employee';
+import { EyeIcon } from './eye';
+import { EyeSlashIcon } from './eyeSlash';
 import { FilterIcon } from './filter';
 import { InfoCircleIcon } from './info-circle';
 import { LeftArrowIcon } from './leftArrow';
@@ -27,6 +29,8 @@ export {
   ChevronRightIcon,
   DownloadIcon,
   EmployeeIcon,
+  EyeIcon,
+  EyeSlashIcon,
   FilterIcon,
   InfoCircleIcon,
   LeftArrowIcon,

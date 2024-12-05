@@ -25,6 +25,8 @@ type TSelectField = Omit<ControllerProps, 'render'> &
     items: ISelectItem[];
     helperText?: React.ReactNode;
     loading?: boolean;
+    defaultValueDisable?: boolean;
+    multiple?: boolean;
   };
 
 export const SelectField = (props: TSelectField) => {
@@ -38,7 +40,9 @@ export const SelectField = (props: TSelectField) => {
     label,
     loading,
     placeholder,
+    defaultValueDisable = true,
     items = [],
+    multiple = false,
     ...rest
   } = props;
   const { control } = useFormContext();
@@ -94,15 +98,21 @@ export const SelectField = (props: TSelectField) => {
         {...rest}
         {...(loading
           ? {
-              IconComponent: () => (
-                <LoaderOverlay loading={loading} size={20} margin={0}>
-                  sa
-                </LoaderOverlay>
-              ),
+              IconComponent: () => <LoaderOverlay loading={loading} size={20} margin={0} width="unset" />,
             }
           : {})}
+        multiple={multiple}
+        value={field.value || (multiple ? [] : '')}
+        renderValue={(selected) => {
+          if (multiple && Array.isArray(selected)) {
+            return selected.length
+              ? selected.map((value) => items.find((item) => item.value === value)?.label).join(', ')
+              : (placeholder ?? 'Seçin');
+          }
+          return items.find((item) => item.value === selected)?.label ?? placeholder ?? 'Seçin';
+        }}
       >
-        <MenuItem value="" disabled>
+        <MenuItem value="" disabled={defaultValueDisable}>
           {placeholder ?? 'Seçin'}
         </MenuItem>
         {content}

@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { theme } from 'src/theme';
 
-import { useGetUserDetails } from 'src/api/users';
+import { useGetUserDetails } from 'src/api';
 
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 

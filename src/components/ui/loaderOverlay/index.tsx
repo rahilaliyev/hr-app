@@ -2,7 +2,8 @@ import { Box, CircularProgress, type CircularProgressProps } from '@mui/material
 
 type TLoaderSpinnerProps = CircularProgressProps & {
   loading: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  width?: string | number;
   height?: string | number;
   margin?: number;
   size?: number;
@@ -12,13 +13,14 @@ export const LoaderOverlay = ({
   loading,
   children,
   height = 'unset',
+  width = '100%',
   size = 30,
   margin,
   ...props
 }: TLoaderSpinnerProps) => {
   return loading ? (
     <Box
-      width="100%"
+      width={width}
       m={margin ?? 5}
       sx={{
         display: 'flex',

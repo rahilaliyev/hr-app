@@ -1,6 +1,17 @@
+import { useState } from 'react';
 import { type ControllerProps, useController, useFormContext } from 'react-hook-form';
 
-import { Box, FormControl, type FormControlProps, TextField, type TextFieldProps } from '@mui/material';
+import {
+  Box,
+  FormControl,
+  type FormControlProps,
+  IconButton,
+  InputAdornment,
+  TextField,
+  type TextFieldProps,
+} from '@mui/material';
+
+import { EyeIcon, EyeSlashIcon } from 'src/assets/icons';
 
 type ITextField = Omit<ControllerProps, 'render'> &
   FormControlProps &
@@ -9,8 +20,9 @@ type ITextField = Omit<ControllerProps, 'render'> &
   };
 
 export const CustomTextField = (props: ITextField) => {
-  const { name, defaultValue, helperText, rules, error: restError, ...rest } = props;
+  const { name, defaultValue, helperText, rules, error: restError, type, ...rest } = props;
   const { control } = useFormContext();
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
 
   const {
     field,
@@ -22,11 +34,31 @@ export const CustomTextField = (props: ITextField) => {
     defaultValue,
   });
 
+  const togglePasswordVisibility = () => {
+    setIsPasswordShow((prev) => !prev);
+  };
+
   const message = error?.message ?? helperText ?? '';
+  const isPasswordField = type === 'password';
 
   return (
     <FormControl fullWidth>
-      <TextField {...field} {...rest} />
+      <TextField
+        {...field}
+        {...rest}
+        type={isPasswordField && isPasswordShow ? 'text' : type}
+        slotProps={{
+          input: {
+            endAdornment: isPasswordField ? (
+              <InputAdornment position="end">
+                <IconButton onClick={togglePasswordVisibility} edge="end">
+                  {isPasswordShow ? <EyeSlashIcon /> : <EyeIcon />}
+                </IconButton>
+              </InputAdornment>
+            ) : null,
+          },
+        }}
+      />
       <Box
         component="span"
         sx={(theme) => ({

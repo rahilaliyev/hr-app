@@ -1,4 +1,7 @@
+import { type TFormValues } from 'src/pages/UserPage/UserAddEditPage/components/validationSchema';
+
 import { type ICompanies } from '../companies/types';
+import { type IRole, type IRoleGroups } from '../roleGroups/types';
 
 import { type ID } from 'src/ts/interface';
 
@@ -27,24 +30,6 @@ interface IEmployee extends ID {
   updated_at: string;
 }
 
-interface IRole {
-  company_id: number;
-  created_at: Date;
-  id: number;
-  name: string;
-  permission: string[];
-  updated_at: Date;
-}
-
-interface IRoleGroups {
-  company_id: number;
-  created_at: Date;
-  id: number;
-  name: string;
-  roles: IRole[];
-  updated_at: Date;
-}
-
 export interface IUsers extends ID {
   companies: ICompanies[];
   created_at: string;
@@ -61,4 +46,9 @@ export interface IUsers extends ID {
   permission: string[];
   roleGroups: IRoleGroups[];
   roles: IRole;
+}
+
+export interface IUpdateUserPayload {
+  id: string;
+  body: TFormValues;
 }
