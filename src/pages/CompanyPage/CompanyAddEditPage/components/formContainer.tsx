@@ -4,9 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import UserContext from 'src/context/userContext';
 
-import { useCreateCompany, useGetCompanyDetails, useUpdateCompany } from 'src/api/companies';
+import { useCreateCompany, useGetCompanyDetails, useGetServiceOptions, useUpdateCompany } from 'src/api';
 import { type IUpdateCompanyPayload } from 'src/api/companies/types';
-import { useGetServiceOptions } from 'src/api/options';
 
 import { Box, Button, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid2';

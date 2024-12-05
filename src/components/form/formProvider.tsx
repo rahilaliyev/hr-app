@@ -12,7 +12,7 @@ export interface FormProps<T extends FieldValues, C> extends GenericFormHandlers
 export const CustomFormProvider = <T extends FieldValues, C>(props: FormProps<T, C>) => {
   const { form, onSubmit, isDisabled = false, children, novalidate = false } = props;
 
-  const isDev = import.meta.env.NODE_ENV === 'development';
+  const isDev = import.meta.env.MODE === 'development';
   const errors = form.formState.errors;
 
   if (isDev && Object.keys(errors).length > 0) {

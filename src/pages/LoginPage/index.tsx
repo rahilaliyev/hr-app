@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { enqueueSnackbar } from 'notistack';
 
-import { useLoginMutation } from 'src/api/login';
+import { useLoginMutation } from 'src/api';
 import { type ILoginPayload } from 'src/api/login/types';
 
 import { Button, Typography } from '@mui/material';

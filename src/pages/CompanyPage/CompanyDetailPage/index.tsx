@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { theme } from 'src/theme';
 
-import { useGetCompanyDetails } from 'src/api/companies';
+import { useGetCompanyDetails } from 'src/api';
 
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 

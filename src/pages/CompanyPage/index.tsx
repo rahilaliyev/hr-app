@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetCompanies } from 'src/api/companies';
+import { useGetCompanies } from 'src/api';
 
 import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';

@@ -1,9 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
+import { type TFormValues } from 'src/pages/UserPage/UserAddEditPage/components/validationSchema';
 
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type IUsers } from './types';
+import { type IUpdateUserPayload, type IUsers } from './types';
+
+import { ROUTES } from 'src/routes/const';
 
 export const useGetUsers = () => {
   return useQuery({
@@ -24,6 +29,47 @@ export const useGetUserDetails = (id: string) => {
     },
     enabled: !!id,
     refetchOnMount: true,
+  });
+};
+
+export const useCreateUser = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const mutationFn = async (body: TFormValues): Promise<void> => {
+    await api.post(`/users`, body);
+  };
+
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      navigate(ROUTES.USERS.PATH);
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.USERS],
+      });
+    },
+  });
+};
+
+export const useUpdateUser = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const mutationFn = async ({ id, body }: IUpdateUserPayload): Promise<void> => {
+    await api.put(`/users/${id}`, body);
+  };
+
+  return useMutation({
+    mutationFn,
+    onSuccess: (_, { id }) => {
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.USERS],
+      });
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.USER_DETAILS, id],
+      });
+      navigate(ROUTES.USERS.PATH);
+    },
   });
 };
 

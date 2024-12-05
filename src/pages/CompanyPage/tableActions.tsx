@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useDeleteCompany } from 'src/api/companies';
+import { useDeleteCompany } from 'src/api';
 
 import { IconButton, Stack, Tooltip } from '@mui/material';
 
