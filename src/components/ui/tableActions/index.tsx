@@ -1,20 +1,15 @@
 import { IconButton, Stack, Tooltip } from '@mui/material';
 
-import { type ID } from 'src/ts/interface';
+import { type ID, type ITableActionProps } from 'src/ts/interface';
 
 import { InfoCircleIcon, PencilIcon, TrashIcon } from 'src/assets/icons';
 
-interface ITableActionProps extends ID {
-  handleNavigateDetail: (id: number) => void;
-  handleNavigateEdit: (id: number) => void;
-  handleDeleteModal: (id: number) => void;
-}
 export const TableActions = ({
   id,
   handleDeleteModal,
   handleNavigateEdit,
   handleNavigateDetail,
-}: ITableActionProps) => (
+}: ITableActionProps & ID) => (
   <Stack gap={2} margin={(theme) => theme.spacing(2.5, 3)}>
     <Tooltip title="Düzəliş et">
       <IconButton
