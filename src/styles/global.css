@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Manrope', 'Arial', 'Helvetica', 'Noto Sans', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d0d5dd;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cacdd3;
+}
+
+/* Up arrow */
+::-webkit-scrollbar-button:vertical:decrement {
+  background: url('./scrollbarSvgs/up-scroll.svg') no-repeat center center;
+  background-size: contain;
+  margin-bottom: 4px;
+}
+
+/* Down arrow */
+::-webkit-scrollbar-button:vertical:increment {
+  background: url('./scrollbarSvgs/down-scroll.svg') no-repeat center center;
+  background-size: contain;
+}
+
+/* Left arrow (for horizontal scrollbar) */
+::-webkit-scrollbar-button:horizontal:decrement {
+  background: url('./scrollbarSvgs/left-scroll.svg') no-repeat center center;
+  background-size: contain;
+}
+
+/* Right arrow (for horizontal scrollbar) */
+::-webkit-scrollbar-button:horizontal:increment {
+  background: url('./scrollbarSvgs/right-scroll.svg') no-repeat center center;
+  background-size: contain;
+}
