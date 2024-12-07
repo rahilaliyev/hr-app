@@ -2,9 +2,15 @@ import { type ICompanies } from 'src/api/companies/types';
 
 import { type GridColDef } from '@mui/x-data-grid';
 
-import TableActions from './tableActions';
+import { TableActions } from 'src/components/ui/tableActions';
 
-export const tableFields: GridColDef<ICompanies>[] = [
+import { type ITableActionProps } from 'src/ts/interface';
+
+export const tableFields = ({
+  handleNavigateDetail,
+  handleNavigateEdit,
+  handleDeleteModal,
+}: ITableActionProps): GridColDef<ICompanies>[] => [
   {
     minWidth: 50,
     field: 'id',
@@ -46,6 +52,13 @@ export const tableFields: GridColDef<ICompanies>[] = [
     field: 'actions',
     sortable: false,
     headerName: '',
-    renderCell: ({ row }) => <TableActions id={row?.id} />,
+    renderCell: ({ row }) => (
+      <TableActions
+        id={row?.id}
+        handleNavigateDetail={handleNavigateDetail}
+        handleNavigateEdit={handleNavigateEdit}
+        handleDeleteModal={handleDeleteModal}
+      />
+    ),
   },
 ];

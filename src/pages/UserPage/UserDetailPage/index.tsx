@@ -63,7 +63,7 @@ const UserDetailPage = () => {
         <Panel.Body>
           <DescriptionContainer>
             <Description label="İstifadəçi adı" content={data?.username} />
-            <Description label="İşçi" content={`${data?.employee?.firstname} ${data?.employee?.lastname}`} />
+            <Description label="İşçi" content={name} />
             <Description
               label="Rol qruplar"
               content={data?.roleGroups?.map((role) => role?.name).join(', ')}

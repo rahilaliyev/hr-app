@@ -30,3 +30,9 @@ export interface IPaginateData<T> {
   to: number;
   total: number;
 }
+
+export interface ITableActionProps {
+  handleNavigateDetail: (id: number) => void;
+  handleNavigateEdit: (id: number) => void;
+  handleDeleteModal: (id: number) => void;
+}

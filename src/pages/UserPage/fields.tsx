@@ -3,9 +3,15 @@ import { type IUsers } from 'src/api/users/types';
 import { Chip, Stack } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
 
-import TableActions from './tableActions';
+import { TableActions } from 'src/components/ui/tableActions';
 
-export const tableFields: GridColDef<IUsers>[] = [
+import { type ITableActionProps } from 'src/ts/interface';
+
+export const tableFields = ({
+  handleNavigateDetail,
+  handleNavigateEdit,
+  handleDeleteModal,
+}: ITableActionProps): GridColDef<IUsers>[] => [
   {
     minWidth: 50,
     field: 'id',
@@ -62,6 +68,13 @@ export const tableFields: GridColDef<IUsers>[] = [
     field: 'actions',
     sortable: false,
     headerName: '',
-    renderCell: ({ row }) => <TableActions id={row?.id} />,
+    renderCell: ({ row }) => (
+      <TableActions
+        id={row?.id}
+        handleNavigateDetail={handleNavigateDetail}
+        handleNavigateEdit={handleNavigateEdit}
+        handleDeleteModal={handleDeleteModal}
+      />
+    ),
   },
 ];

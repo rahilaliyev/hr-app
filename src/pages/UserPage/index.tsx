@@ -1,11 +1,12 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetUsers } from 'src/api';
+import { useDeleteUser, useGetUsers } from 'src/api';
 
 import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import { Breadcrumb, Panel } from 'src/components';
+import { Breadcrumb, ConfirmModal, Panel } from 'src/components';
 
 import { tableFields } from './fields';
 
@@ -16,10 +17,36 @@ import { AddIcon, FilterIcon, SearchIcon } from 'src/assets/icons';
 const UserPage = () => {
   const navigate = useNavigate();
 
+  const [isDeleteModal, setIsDeleteModal] = useState(false);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
   const { data, isLoading } = useGetUsers();
+  const { mutate } = useDeleteUser();
 
   const handleNavigateAdd = () => {
     navigate(ROUTES.USERS.ADD);
+  };
+
+  const handleNavigateDetail = (id: number) => {
+    navigate(`${ROUTES.USERS.PATH}/detail/${id}`);
+  };
+
+  const handleNavigateEdit = (id: number) => {
+    navigate(`${ROUTES.USERS.PATH}/edit/${id}`);
+  };
+
+  const handleDeleteModal = (id: number) => {
+    setSelectedId(id);
+    setIsDeleteModal(true);
+  };
+
+  const handleConfirm = () => {
+    selectedId &&
+      mutate(selectedId, {
+        onSuccess: () => {
+          setIsDeleteModal(false);
+          setSelectedId(null);
+        },
+      });
   };
 
   return (
@@ -73,9 +100,24 @@ const UserPage = () => {
       </Panel.Header>
       <Panel.Body>
         <Stack width="100%" height="100%">
-          <DataGrid getRowHeight={() => 'auto'} columns={tableFields} rows={data} loading={isLoading} />
+          <DataGrid
+            getRowHeight={() => 'auto'}
+            columns={tableFields({ handleNavigateDetail, handleNavigateEdit, handleDeleteModal })}
+            rows={data}
+            loading={isLoading}
+          />
         </Stack>
       </Panel.Body>
+      <ConfirmModal
+        title="Silmək istədiyinizə əminsiniz?"
+        open={isDeleteModal}
+        onClose={() => {
+          setIsDeleteModal(false);
+        }}
+        onConfirm={handleConfirm}
+      >
+        Bu əməliyyat daimidir və geri qaytarıla bilməz. İstifadəçini silmək istədiyinizə əminsiniz?
+      </ConfirmModal>
     </Panel>
   );
 };
