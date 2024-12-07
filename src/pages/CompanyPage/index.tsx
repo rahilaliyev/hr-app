@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetCompanies } from 'src/api';
+import { useDeleteCompany, useGetCompanies } from 'src/api';
 
 import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import { Breadcrumb, CustomTablePagination, Panel } from 'src/components';
+import { Breadcrumb, ConfirmModal, CustomTablePagination, Panel } from 'src/components';
 
 import { tableFields } from './fields';
 
@@ -18,10 +18,37 @@ const CompanyPage = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(5);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [isDeleteModal, setIsDeleteModal] = useState(false);
+
   const { data, isLoading } = useGetCompanies(page);
+  const { mutate } = useDeleteCompany();
 
   const handleNavigateAdd = () => {
     navigate(ROUTES.COMPANIES.ADD);
+  };
+
+  const handleNavigateDetail = (id: number) => {
+    navigate(`${ROUTES.COMPANIES.PATH}/detail/${id}`);
+  };
+
+  const handleNavigateEdit = (id: number) => {
+    navigate(`${ROUTES.COMPANIES.PATH}/edit/${id}`);
+  };
+
+  const handleDeleteModal = (id: number) => {
+    setSelectedId(id);
+    setIsDeleteModal(true);
+  };
+
+  const handleConfirm = () => {
+    selectedId &&
+      mutate(selectedId, {
+        onSuccess: () => {
+          setIsDeleteModal(false);
+          setSelectedId(null);
+        },
+      });
   };
 
   return (
@@ -82,7 +109,11 @@ const CompanyPage = () => {
 
       <Panel.Body>
         <Stack width="100%" height="100%">
-          <DataGrid columns={tableFields} rows={data?.data} loading={isLoading} />
+          <DataGrid
+            columns={tableFields({ handleNavigateDetail, handleNavigateEdit, handleDeleteModal })}
+            rows={data?.data}
+            loading={isLoading}
+          />
         </Stack>
         <CustomTablePagination
           page={page}
@@ -92,6 +123,16 @@ const CompanyPage = () => {
           total={data?.total}
         />
       </Panel.Body>
+      <ConfirmModal
+        title="Silmək istədiyinizə əminsiniz?"
+        open={isDeleteModal}
+        onClose={() => {
+          setIsDeleteModal(false);
+        }}
+        onConfirm={handleConfirm}
+      >
+        Bu əməliyyat daimidir və geri qaytarıla bilməz. Şirkəti silmək istədiyinizə əminsiniz?
+      </ConfirmModal>
     </Panel>
   );
 };
