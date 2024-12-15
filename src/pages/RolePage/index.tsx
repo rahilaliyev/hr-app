@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Button, InputAdornment, Stack, Tab, Tabs, TextField, Typography } from '@mui/material';
 
@@ -13,15 +12,18 @@ import { ROUTES } from 'src/routes/const';
 import { AddIcon, FilterIcon, SearchIcon } from 'src/assets/icons';
 
 const RolePage = () => {
-  const [value, setValue] = useState(0);
+  const location = useLocation();
   const navigate = useNavigate();
 
+  const tabPaths = [ROUTES.ROLES.PATH, ROUTES.ROLE_GROUPS.PATH];
+  const currentTab = tabPaths.indexOf(location.pathname);
+
   const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    navigate(tabPaths[newValue]);
   };
 
   const handleNavigateAdd = () => {
-    value === 0 ? navigate(ROUTES.ROLES.ADD) : navigate(ROUTES.ROLES.ADD);
+    navigate(currentTab === 0 ? ROUTES.ROLES.ADD : ROUTES.ROLE_GROUPS.ADD);
   };
 
   return (
@@ -37,9 +39,9 @@ const RolePage = () => {
           Rollar və rol qruplar
         </Typography>
         <Stack mb={9} width="100%">
-          <Tabs value={value} onChange={handleTabChange} aria-label="basic tabs example">
-            <Tab label="Rollar" value={0} />
-            <Tab label="Rol qruplar" value={1} />
+          <Tabs value={currentTab} onChange={handleTabChange} aria-label="basic tabs example">
+            <Tab label="Rollar" />
+            <Tab label="Rol qruplar" />
           </Tabs>
         </Stack>
         <Stack justifyContent="space-between" width="100%">
@@ -80,8 +82,8 @@ const RolePage = () => {
         </Stack>
       </Panel.Header>
       <Panel.Body>
-        {value === 0 && <Roles />}
-        {value === 1 && <RoleGroups />}
+        {currentTab === 0 && <Roles />}
+        {currentTab === 1 && <RoleGroups />}
       </Panel.Body>
     </Panel>
   );

@@ -20,6 +20,8 @@ const UserAddEditPage = lazy(() => import('src/pages/UserPage/UserAddEditPage'))
 const RolePage = lazy(() => import('src/pages/RolePage'));
 const RoleAddEditPage = lazy(() => import('src/pages/RolePage/Roles/RoleAddEditPage'));
 const RoleDetailPage = lazy(() => import('src/pages/RolePage/Roles/RoleDetailPage'));
+const RoleGroupAddEditPage = lazy(() => import('src/pages/RolePage/RoleGroups/RoleGroupsAddEditPage'));
+const RoleGroupDetailPage = lazy(() => import('src/pages/RolePage/RoleGroups/RoleGroupsDetailPage'));
 const EmployeePage = lazy(() => import('src/pages/EmployeePage'));
 
 const RouteComponents = () => {
@@ -63,6 +65,12 @@ const RouteComponents = () => {
           <Route path={ROUTES.ROLES.ADD} element={suspenseFallback(RoleAddEditPage)} />
           <Route path={ROUTES.ROLES.EDIT} element={suspenseFallback(RoleAddEditPage)} />
           <Route path={ROUTES.ROLES.DETAIL} element={suspenseFallback(RoleDetailPage)} />
+        </Route>
+        <Route path={ROUTES.ROLE_GROUPS.PATH}>
+          <Route index element={suspenseFallback(RolePage)} />
+          <Route path={ROUTES.ROLE_GROUPS.ADD} element={suspenseFallback(RoleGroupAddEditPage)} />
+          <Route path={ROUTES.ROLE_GROUPS.EDIT} element={suspenseFallback(RoleGroupAddEditPage)} />
+          <Route path={ROUTES.ROLE_GROUPS.DETAIL} element={suspenseFallback(RoleGroupDetailPage)} />
         </Route>
         <Route path={ROUTES.EMPLOYEES.PATH} element={suspenseFallback(EmployeePage)} />
       </Route>

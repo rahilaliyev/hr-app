@@ -20,7 +20,7 @@ const UserPage = () => {
   const [isDeleteModal, setIsDeleteModal] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const { data, isLoading } = useGetUsers();
-  const { mutate } = useDeleteUser();
+  const { mutate, isPending } = useDeleteUser();
 
   const handleNavigateAdd = () => {
     navigate(ROUTES.USERS.ADD);
@@ -111,6 +111,7 @@ const UserPage = () => {
       <ConfirmModal
         title="Silmək istədiyinizə əminsiniz?"
         open={isDeleteModal}
+        isLoading={isPending}
         onClose={() => {
           setIsDeleteModal(false);
         }}
