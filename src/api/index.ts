@@ -2,6 +2,8 @@ export * from './companies';
 export * from './employees';
 export * from './languages';
 export * from './login';
+export * from './model-infos';
 export * from './options';
 export * from './roleGroups';
+export * from './roles';
 export * from './users';

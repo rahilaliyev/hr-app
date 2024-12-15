@@ -68,6 +68,9 @@ export const dataGridTheme: DataGridComponents = {
           outline: 'none',
         },
       },
+      columnHeaderTitle: {
+        fontWeight: 600,
+      },
       columnSeparator: {
         display: 'none',
       },

@@ -16,6 +16,7 @@ import { stackTheme } from './stack';
 import { switchTheme } from './switch';
 import { tableTheme } from './table';
 import { tablePaginationTheme } from './tablePagination';
+import { tabsTheme } from './tabs';
 import { textFieldTheme } from './textField';
 import { tooltipTheme } from './tooltip';
 import { typographyOptions, typographyTheme } from './typography';
@@ -40,6 +41,7 @@ export const theme = createTheme({
     ...switchTheme,
     ...tableTheme,
     ...tablePaginationTheme,
+    ...tabsTheme,
     ...textFieldTheme,
     ...tooltipTheme,
     ...typographyTheme,

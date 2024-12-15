@@ -32,7 +32,7 @@ const FormContainer = () => {
 
   useEffect(() => {
     formBag.reset(defaultValues);
-  }, [defaultValues, formBag.reset]);
+  }, [defaultValues, formBag.reset, formBag]);
 
   //   useEffect(() => {
   //     const handleErrorScroll = (errors: any) => {
