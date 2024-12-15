@@ -16,18 +16,18 @@ import { getAccessToken } from 'src/utils';
 const PrivateLayout = () => {
   const token = getAccessToken();
 
-  if (!token) {
-    return <Navigate to={ROUTES.AUTH.LOGIN.PATH} />;
-  }
-
-  const { sub } = jwtDecode<IAuthToken>(token);
-  const { data: userDetails, isSuccess } = useGetUserDetails(sub);
+  const { sub } = token ? jwtDecode<IAuthToken>(token) : { sub: null };
+  const { data: userDetails, isSuccess } = useGetUserDetails(sub ?? '');
   const { company, setUser } = useContext(UserContext);
   const [open, setOpen] = useState(!company);
 
   useEffect(() => {
     userDetails && setUser(userDetails);
-  }, [isSuccess]);
+  }, [isSuccess, setUser, userDetails]);
+
+  if (!token) {
+    return <Navigate to={ROUTES.AUTH.LOGIN.PATH} />;
+  }
 
   return (
     <Stack height="100%" alignItems="flex-start">

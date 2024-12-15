@@ -1,13 +1,6 @@
-import { type ID } from 'src/ts/interface';
+import { type IRole } from '../roles/types';
 
-export interface IRole {
-  company_id: number;
-  created_at: Date;
-  id: number;
-  name: string;
-  permission: string[];
-  updated_at: Date;
-}
+import { type ID } from 'src/ts/interface';
 
 export interface IRoleGroups extends ID {
   company_id: number;

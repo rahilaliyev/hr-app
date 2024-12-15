@@ -53,7 +53,7 @@ export const buttonTheme: Components = {
         },
 
         '&:focus': {
-          background: colorPalette.orange[200],
+          borderColor: colorPalette.primary.light,
         },
 
         '&:disabled': {

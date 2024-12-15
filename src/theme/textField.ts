@@ -58,6 +58,15 @@ export const textFieldTheme: Components = {
       root: {
         color: colorPalette.grey[200],
         borderRadius: 4,
+        '& .MuiSvgIcon-root': {
+          transition: '0.3s',
+        },
+        '&:hover': {
+          backgroundColor: 'transparent',
+          '& .MuiSvgIcon-root': {
+            color: colorPalette.primary.main,
+          },
+        },
       },
     },
   },

@@ -39,6 +39,10 @@ export const StyledNavbar = styled(Stack)(({ theme }) => ({
     padding: theme.spacing(3),
     width: '100%',
     color: theme.palette.grey[500],
+    transition: '0.5s',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.light,
+    },
     '& .MuiTypography-root': {
       display: 'flex',
       alignItems: 'center',

@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material';
 
 import { ROUTES } from 'src/routes/const';
 
-import { CategoryIcon, EmployeeIcon, UserIcon } from 'src/assets/icons';
+import { CategoryIcon, EmployeeIcon, PersonIcon, UserIcon } from 'src/assets/icons';
 
 interface IMenuItem {
   href: string;
@@ -22,6 +22,11 @@ export const useMenuItems = () => {
       href: ROUTES.COMPANIES.PATH,
       label: 'Şirkətlər',
       icon: <CategoryIcon pathFill={theme.palette.grey[500]} />,
+    },
+    {
+      href: ROUTES.ROLES.PATH,
+      label: 'Rollar və rol qruplar',
+      icon: <PersonIcon pathFill={theme.palette.grey[500]} />,
     },
     {
       href: ROUTES.EMPLOYEES.PATH,

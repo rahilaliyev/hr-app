@@ -20,7 +20,7 @@ export const useFormHandlers = <T extends FieldValues, C>(props: UseFormHandlers
         keepDirtyValues: true,
       });
     }
-  }, [initialValues]);
+  }, [initialValues, form]);
 
   return {
     onSubmit: submitHandler as SubmitHandler<T>,

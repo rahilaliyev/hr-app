@@ -14,7 +14,9 @@ import { FilterIcon } from './filter';
 import { InfoCircleIcon } from './info-circle';
 import { LeftArrowIcon } from './leftArrow';
 import { PencilIcon } from './pencil';
+import { PersonIcon } from './person';
 import { SearchIcon } from './search';
+import { TickCircleIcon } from './tickCircle';
 import { TrashIcon } from './trash';
 import { UserIcon } from './user';
 
@@ -35,7 +37,9 @@ export {
   InfoCircleIcon,
   LeftArrowIcon,
   PencilIcon,
+  PersonIcon,
   SearchIcon,
+  TickCircleIcon,
   TrashIcon,
   UserIcon,
 };

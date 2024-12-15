@@ -17,6 +17,12 @@ export const ROUTES = {
     DETAIL: `${BASE_PATH}/users/detail/:id`,
     EDIT: `${BASE_PATH}/users/edit/:id`,
   },
+  ROLES: {
+    PATH: `${BASE_PATH}/roles`,
+    ADD: `${BASE_PATH}/roles/add`,
+    DETAIL: `${BASE_PATH}/roles/detail/:id`,
+    EDIT: `${BASE_PATH}/roles/edit/:id`,
+  },
   EMPLOYEES: {
     PATH: `${BASE_PATH}/employees`,
   },
