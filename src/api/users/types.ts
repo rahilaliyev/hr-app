@@ -1,7 +1,8 @@
 import { type TFormValues } from 'src/pages/UserPage/UserAddEditPage/components/validationSchema';
 
 import { type ICompanies } from '../companies/types';
-import { type IRole, type IRoleGroups } from '../roleGroups/types';
+import { type IRoleGroups } from '../roleGroups/types';
+import { type IRole } from '../roles/types';
 
 import { type ID } from 'src/ts/interface';
 

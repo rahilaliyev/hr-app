@@ -45,25 +45,25 @@ const FormContainer = () => {
         label: `${emp.firstname} ${emp?.lastname}`,
       }));
     }
-  }, [isEmployeeSuccess]);
+  }, [employees, isEmployeeSuccess]);
 
   const roleGroupOptions = useMemo(() => {
     if (isRoleGroupsSuccess) {
       return roleGroups.map((role) => ({ value: role.id, label: role.name }));
     }
-  }, [isRoleGroupsSuccess]);
+  }, [roleGroups, isRoleGroupsSuccess]);
 
   const langOptions = useMemo(() => {
     if (isLangSuccess) {
       return languages.map((lng) => ({ value: lng.id.toString(), label: lng.name }));
     }
-  }, [isLangSuccess]);
+  }, [languages, isLangSuccess]);
 
   const companyOptions = useMemo(() => {
     if (isCompSuccess) {
       return companies.data.map((cmp) => ({ value: cmp.id, label: cmp.name }));
     }
-  }, [isCompSuccess]);
+  }, [companies?.data, isCompSuccess]);
 
   const formBag = useForm<TFormValues>({
     defaultValues,
@@ -74,7 +74,7 @@ const FormContainer = () => {
 
   useEffect(() => {
     formBag.reset(defaultValues);
-  }, [defaultValues, formBag.reset]);
+  }, [formBag, defaultValues, formBag.reset]);
 
   useEffect(() => {
     if (employeeIdWatching) {
@@ -82,7 +82,7 @@ const FormContainer = () => {
     } else {
       formBag.setValue('userCheck', false);
     }
-  }, [employeeIdWatching]);
+  }, [employeeIdWatching, formBag]);
 
   const onSubmit = (values: TFormValues) => {
     const { companies, password, username, firstname, lastname, email, userCheck } = values;
