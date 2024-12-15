@@ -225,8 +225,10 @@ const RoleTable = ({ checkedValues, setCheckedValues }: IProps) => {
   return (
     <Grid size={12}>
       {!isModelLoading && (
-        <Button onClick={handleChooseAllCheckes} size="small" sx={{ mb: 4 }}>
-          {checkedValues.length === allPermissionId?.length ? 'Hamısını sil' : 'Hamısını seç'}
+        <Button variant="outlined" onClick={handleChooseAllCheckes} size="small" sx={{ mb: 4 }}>
+          {checkedValues.length === allPermissionId?.length
+            ? 'Rolların hamısını sil'
+            : 'Rolların hamısını seç'}
         </Button>
       )}
       <Stack height="50vh">
