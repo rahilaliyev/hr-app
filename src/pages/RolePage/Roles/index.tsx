@@ -19,7 +19,7 @@ const Roles = () => {
   const [isDeleteModal, setIsDeleteModal] = useState(false);
   const { data = [] as IRole[], isLoading } = useGetRoles();
   const { data: companies } = useGetCompanies(0);
-  const { mutate } = useDeleteRole();
+  const { mutate, isPending } = useDeleteRole();
 
   const handleNavigateDetail = (id: number) => {
     navigate(`${ROUTES.ROLES.PATH}/detail/${id}`);
@@ -60,6 +60,7 @@ const Roles = () => {
       <ConfirmModal
         title="Silmək istədiyinizə əminsiniz?"
         open={isDeleteModal}
+        isLoading={isPending}
         onClose={() => {
           setIsDeleteModal(false);
         }}

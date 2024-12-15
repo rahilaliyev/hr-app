@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import { type ICompanies } from 'src/api/companies/types';
-import { type IRoleGroups } from 'src/api/roleGroups/types';
+import { type IRoleGroup } from 'src/api/roleGroups/types';
 
 import { Chip, Stack } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
@@ -16,7 +16,7 @@ export const tableFields = ({
   handleNavigateDetail,
   handleNavigateEdit,
   handleDeleteModal,
-}: ITableActionProps & { companies?: ICompanies[] }): GridColDef<IRoleGroups>[] => [
+}: ITableActionProps & { companies?: ICompanies[] }): GridColDef<IRoleGroup>[] => [
   {
     width: 20,
     field: 'id',
