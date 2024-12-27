@@ -87,3 +87,18 @@ export interface IEmployees extends ID {
   worker_contract: IWorkerContract[];
   workplace_infos: IWorkPlaceInfo[];
 }
+
+export interface IFamilyInfo extends ID {
+  address: string;
+  birth_date: string;
+  contact_number: string;
+  created_at: string;
+  employee: IEmployees;
+  family_member_type: ICommonEmployeeStatus;
+  m_firstname: string;
+  m_lastname: string;
+  m_surname: string;
+  sex: ICommonEmployeeStatus;
+  status: boolean;
+  updated_at: string;
+}
