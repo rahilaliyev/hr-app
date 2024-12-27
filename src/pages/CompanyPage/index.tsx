@@ -22,7 +22,7 @@ const CompanyPage = () => {
   const [isDeleteModal, setIsDeleteModal] = useState(false);
 
   const { data, isLoading } = useGetCompanies(page);
-  const { mutate } = useDeleteCompany();
+  const { mutate, isPending } = useDeleteCompany();
 
   const handleNavigateAdd = () => {
     navigate(ROUTES.COMPANIES.ADD);
@@ -126,6 +126,7 @@ const CompanyPage = () => {
       <ConfirmModal
         title="Silmək istədiyinizə əminsiniz?"
         open={isDeleteModal}
+        isLoading={isPending}
         onClose={() => {
           setIsDeleteModal(false);
         }}

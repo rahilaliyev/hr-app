@@ -1,7 +1,7 @@
 import { type TFormValues } from 'src/pages/UserPage/UserAddEditPage/components/validationSchema';
 
 import { type ICompanies } from '../companies/types';
-import { type IRoleGroups } from '../roleGroups/types';
+import { type IRoleGroup } from '../roleGroups/types';
 import { type IRole } from '../roles/types';
 
 import { type ID } from 'src/ts/interface';
@@ -45,7 +45,7 @@ export interface IUsers extends ID {
   updated_at: string;
   username: string;
   permission: string[];
-  roleGroups: IRoleGroups[];
+  roleGroups: IRoleGroup[];
   roles: IRole;
 }
 

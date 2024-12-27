@@ -19,7 +19,7 @@ const FormContainer = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useContext(UserContext);
-  const { data, isPending: isDataLoading } = useGetCompanyDetails(id ?? '');
+  const { data, isLoading: isDataLoading } = useGetCompanyDetails(id ?? '');
   const { data: options, isPending: isOptionLoading } = useGetServiceOptions();
   const { mutate: createMutation, isPending: isCreateLoading } = useCreateCompany();
   const { mutate: updateMutation, isPending: isUpdateLoading } = useUpdateCompany();

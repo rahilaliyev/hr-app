@@ -11,6 +11,9 @@ export const dataGridTheme: DataGridComponents = {
       rowHeight: 50,
       disableColumnMenu: true,
       disableVirtualization: false,
+      localeText: {
+        noRowsLabel: 'Məlumat yoxdur',
+      },
     },
     styleOverrides: {
       root: {
@@ -74,9 +77,11 @@ export const dataGridTheme: DataGridComponents = {
       columnSeparator: {
         display: 'none',
       },
+      overlayWrapper: {
+        height: '36px',
+      },
       overlay: {
         backgroundColor: 'transparent',
-
         '& .MuiCircularProgress-root': {
           display: 'flex',
           justifyContent: 'center',

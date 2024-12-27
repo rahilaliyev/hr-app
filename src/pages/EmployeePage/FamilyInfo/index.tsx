@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useDeleteRole, useGetCompanies, useGetRoles } from 'src/api';
-import { type IRole } from 'src/api/roles/types';
+import { useDeleteEmployeeFamilyInfo, useGetEmployeeFamilyInfo } from 'src/api';
+import { type IFamilyInfo } from 'src/api/employees/types';
 
 import { Stack } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
@@ -13,13 +13,12 @@ import { tableFields } from './fields';
 
 import { ROUTES } from 'src/routes/const';
 
-const Roles = () => {
+const FamilyInfo = () => {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [isDeleteModal, setIsDeleteModal] = useState(false);
-  const { data = [] as IRole[], isLoading } = useGetRoles();
-  const { data: companies } = useGetCompanies(0);
-  const { mutate, isPending } = useDeleteRole();
+  const { data = [] as IFamilyInfo[], isLoading } = useGetEmployeeFamilyInfo();
+  const { mutate, isPending } = useDeleteEmployeeFamilyInfo();
 
   const handleNavigateDetail = (id: number) => {
     navigate(`${ROUTES.ROLES.PATH}/detail/${id}`);
@@ -44,19 +43,15 @@ const Roles = () => {
       });
   };
 
+  const fields = tableFields({
+    handleNavigateDetail,
+    handleNavigateEdit,
+    handleDeleteModal,
+  });
+
   return (
     <Stack width="100%" height="100%">
-      <DataGrid
-        columns={tableFields({
-          companies: companies?.data,
-          handleNavigateDetail,
-          handleNavigateEdit,
-          handleDeleteModal,
-        })}
-        rows={data}
-        loading={isLoading}
-        getRowHeight={() => 'auto'}
-      />
+      <DataGrid columns={fields} rows={data} loading={isLoading} />
       <ConfirmModal
         title="Silmək istədiyinizə əminsiniz?"
         open={isDeleteModal}
@@ -66,10 +61,10 @@ const Roles = () => {
         }}
         onConfirm={handleConfirm}
       >
-        Bu əməliyyat daimidir və geri qaytarıla bilməz. Rolu silmək istədiyinizə əminsiniz?
+        Bu əməliyyat daimidir və geri qaytarıla bilməz. Ailə məlumatlarını silmək istədiyinizə əminsiniz?
       </ConfirmModal>
     </Stack>
   );
 };
 
-export default Roles;
+export default FamilyInfo;

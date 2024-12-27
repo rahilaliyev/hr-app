@@ -51,7 +51,7 @@ export const ConfirmModal = ({
         },
       }}
     >
-      <LoaderOverlay loading={isLoading} sx={{ flexDirection: 'column !important' }}>
+      <LoaderOverlay loading={isLoading} width="unset" sx={{ flexDirection: 'column !important' }}>
         <Stack justifyContent="center" flexDirection="column" alignItems="center">
           <CautionFillIcon width={54} height={54} pathFill={theme.palette.error.main} />
           <DialogTitle variant="h5" fontWeight={600} mt={5}>
