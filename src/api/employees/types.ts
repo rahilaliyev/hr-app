@@ -102,3 +102,39 @@ export interface IFamilyInfo extends ID {
   status: boolean;
   updated_at: string;
 }
+
+interface ICategory extends ID {
+  code: string;
+  company: ICompanies;
+  create_date: string;
+  created_at: string;
+  employee: IEmployees;
+  end_date: string;
+  icon: string;
+  label: string;
+  parent: null;
+  position_level: ICommonEmployeeStatus & { icon: string };
+  structure_level: ICommonEmployeeStatus & { icon: string };
+  updated_at: string;
+  work_status: ICommonEmployeeStatus;
+}
+
+export interface IMilitaryInfo extends ID {
+  additional_information: string;
+  category: ICategory;
+  completion_date: string;
+  created_at: string;
+  employee: IEmployees;
+  fitness_service: string;
+  general: string;
+  group: ICommonEmployeeStatus;
+  no_official: string;
+  rank: ICommonEmployeeStatus;
+  registration_date: string;
+  registration_service: string;
+  special: string;
+  specialty_acc: string;
+  staff: ICommonEmployeeStatus;
+  status: boolean;
+  updated_at: string;
+}
