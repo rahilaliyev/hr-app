@@ -6,6 +6,7 @@ npm run format ||
     Prettier-də xəta var. Xətanı düzəlt, sonra git commit et!';
     false;
 )
+git add .
 echo 'Kodlar Prettier-dən uğurla keçdi'
 # Check ESLint Standards
 npm run check-lint ||

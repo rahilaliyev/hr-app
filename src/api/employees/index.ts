@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type IEmployee, type IFamilyInfo, type IMilitaryInfo,type IWorkerContract } from './types';
+import { type IEmployee, type IFamilyInfo, type IMilitaryInfo, type IWorkerContract } from './types';
 
 export const useGetEmployees = () => {
   return useQuery({
