@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { type ICompanies } from 'src/api/companies/types';
+import { type ICompany } from 'src/api/companies/types';
 import { type IRole } from 'src/api/roles/types';
 
 import { Chip, Stack } from '@mui/material';
@@ -16,7 +16,7 @@ export const tableFields = ({
   handleNavigateDetail,
   handleNavigateEdit,
   handleDeleteModal,
-}: ITableActionProps & { companies?: ICompanies[] }): GridColDef<IRole>[] => [
+}: ITableActionProps & { companies?: ICompany[] }): GridColDef<IRole>[] => [
   {
     width: 20,
     field: 'id',

@@ -6,7 +6,7 @@ import { type TFormValues } from 'src/pages/CompanyPage/CompanyAddEditPage/compo
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type ICompanies, type IUpdateCompanyPayload } from './types';
+import { type ICompany, type IUpdateCompanyPayload } from './types';
 
 import { ROUTES } from 'src/routes/const';
 import { type IPaginateData } from 'src/ts/interface';
@@ -15,7 +15,7 @@ export const useGetCompanies = (page: number) => {
   return useQuery({
     queryKey: [QUERY_KEYS.COMPANIES, page],
     queryFn: async () => {
-      const res = await api.get<IPaginateData<ICompanies[]>>('/companies', {
+      const res = await api.get<IPaginateData<ICompany[]>>('/companies', {
         params: { page: page + 1 },
       });
       return res.data;
@@ -45,7 +45,7 @@ export const useGetCompanyDetails = (id: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.COMPANY_DETAILS, id],
     queryFn: async () => {
-      const res = await api.get<ICompanies>(`/companies/${id}`);
+      const res = await api.get<ICompany>(`/companies/${id}`);
       return res.data;
     },
     enabled: !!id,

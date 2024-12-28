@@ -1,6 +1,6 @@
 import { type TFormValues } from 'src/pages/UserPage/UserAddEditPage/components/validationSchema';
 
-import { type ICompanies } from '../companies/types';
+import { type ICompany } from '../companies/types';
 import { type IRoleGroup } from '../roleGroups/types';
 import { type IRole } from '../roles/types';
 
@@ -32,7 +32,7 @@ interface IEmployee extends ID {
 }
 
 export interface IUsers extends ID {
-  companies: ICompanies[];
+  companies: ICompany[];
   created_at: string;
   email: string;
   email_verified_at: string;

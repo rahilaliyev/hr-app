@@ -44,7 +44,6 @@ export const dataGridTheme: DataGridComponents = {
         overflowX: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
-
         '&:focus': {
           outline: 'none',
         },

@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 
-import { type ICompanies } from 'src/api/companies/types';
+import { type ICompany } from 'src/api/companies/types';
 
 import { type TFormValues } from './validationSchema';
 
-export const useDefaultValues = (data: ICompanies | undefined): TFormValues =>
+export const useDefaultValues = (data: ICompany | undefined): TFormValues =>
   useMemo(() => {
     return {
       name: data?.name ?? '',

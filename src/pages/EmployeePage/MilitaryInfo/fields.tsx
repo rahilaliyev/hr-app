@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 import { type IMilitaryInfo } from 'src/api/employees/types';
 
-import { Box, Tooltip } from '@mui/material';
+import { Tooltip, Typography } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
 
 import { TableActions } from 'src/components/ui/tableActions';
@@ -27,7 +27,7 @@ export const tableFields = ({
     minWidth: 180,
     field: 'asa',
     headerName: 'A. S. A.',
-    renderCell: ({ row }) => `${row.employee.firstname} ${row.employee.lastname}`,
+    renderCell: ({ row }) => (row.employee ? `${row.employee?.firstname} ${row.employee?.lastname}` : '-'),
   },
   {
     flex: 1,
@@ -107,19 +107,28 @@ export const tableFields = ({
   {
     flex: 1,
     sortable: false,
-    minWidth: 150,
+    minWidth: 200,
     field: 'no_official',
     headerName: 'Hərbi vəzifəli olmaması barədə qeyd',
+    renderCell: ({ row }) => (
+      <Tooltip title={row.no_official}>
+        <Typography noWrap variant="subtitle2" style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
+          {row.no_official}
+        </Typography>
+      </Tooltip>
+    ),
   },
   {
     flex: 1,
     sortable: false,
-    minWidth: 150,
+    minWidth: 200,
     field: 'additional_information',
     headerName: 'Əlavə məlumatlar',
     renderCell: ({ row }) => (
       <Tooltip title={row.additional_information}>
-        <Box>{row.additional_information}</Box>
+        <Typography noWrap variant="subtitle2" style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
+          {row.additional_information}
+        </Typography>
       </Tooltip>
     ),
   },

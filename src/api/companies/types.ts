@@ -4,7 +4,7 @@ import { type IServiceId } from '../options/types';
 
 import { type ID } from 'src/ts/interface';
 
-export interface ICompanies extends ID {
+export interface ICompany extends ID {
   address: string;
   azn_account: string;
   bank_filial: string;

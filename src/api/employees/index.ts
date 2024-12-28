@@ -3,13 +3,13 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type IEmployees, type IFamilyInfo, type IMilitaryInfo } from './types';
+import { type IEmployee, type IFamilyInfo, type IMilitaryInfo,type IWorkerContract } from './types';
 
 export const useGetEmployees = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.EMPLOYEES],
     queryFn: async () => {
-      const res = await api.get<IEmployees[]>('/employees');
+      const res = await api.get<IEmployee[]>('/employees');
       return res.data;
     },
     refetchOnMount: true,
@@ -32,6 +32,17 @@ export const useGetEmployeeMilitaryInfo = () => {
     queryKey: [QUERY_KEYS.MILITARY_INFO],
     queryFn: async () => {
       const res = await api.get<IMilitaryInfo[]>('/military-infos');
+      return res.data;
+    },
+    refetchOnMount: true,
+  });
+};
+
+export const useGetEmployeeWorkerContracts = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.WORKER_CONTRACTS],
+    queryFn: async () => {
+      const res = await api.get<IWorkerContract[]>('/worker-contracts');
       return res.data;
     },
     refetchOnMount: true,
@@ -84,6 +95,23 @@ export const useDeleteEmployeeMilitaryInfo = () => {
     onSuccess: () => {
       void queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.MILITARY_INFO],
+      });
+    },
+  });
+};
+
+export const useDeleteEmployeeWorkerContract = () => {
+  const queryClient = useQueryClient();
+
+  const mutationFn = async (id: number): Promise<void> => {
+    await api.delete(`/worker-contracts/${id}`);
+  };
+
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.WORKER_CONTRACTS],
       });
     },
   });
