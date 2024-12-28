@@ -1,4 +1,4 @@
-import { type IUsers } from 'src/api/users/types';
+import { type IUser } from 'src/api/users/types';
 
 import { Chip, Stack } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
@@ -11,7 +11,7 @@ export const tableFields = ({
   handleNavigateDetail,
   handleNavigateEdit,
   handleDeleteModal,
-}: ITableActionProps): GridColDef<IUsers>[] => [
+}: ITableActionProps): GridColDef<IUser>[] => [
   {
     minWidth: 50,
     field: 'id',

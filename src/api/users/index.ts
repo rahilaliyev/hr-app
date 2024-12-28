@@ -6,7 +6,7 @@ import { type TFormValues } from 'src/pages/UserPage/UserAddEditPage/components/
 import { api } from '../axiosInstance';
 import { QUERY_KEYS } from '../QUERY_KEYS';
 
-import { type IUpdateUserPayload, type IUsers } from './types';
+import { type IUpdateUserPayload, type IUser } from './types';
 
 import { ROUTES } from 'src/routes/const';
 
@@ -14,7 +14,7 @@ export const useGetUsers = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.USERS],
     queryFn: async () => {
-      const res = await api.get<IUsers[]>('/users');
+      const res = await api.get<[]>('/users');
       return res.data;
     },
   });
@@ -24,7 +24,7 @@ export const useGetUserDetails = (id: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.USER_DETAILS, id],
     queryFn: async () => {
-      const res = await api.get<IUsers>(`/users/${id}`);
+      const res = await api.get<IUser>(`/users/${id}`);
       return res.data;
     },
     enabled: !!id,
