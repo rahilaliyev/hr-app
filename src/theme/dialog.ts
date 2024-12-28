@@ -21,7 +21,6 @@ export const dialogTheme: Components = {
       },
       paperWidthSm: {
         width: '348px',
-        maxHeight: '278px !important',
         padding: '8px',
         '& .MuiDialogTitle-root, & .MuiDialogContent-root': {
           padding: '8px',

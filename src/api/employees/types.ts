@@ -1,11 +1,15 @@
 import { type ICompany } from '../companies/types';
-import { type IUsers } from '../users/types';
+import { type IUser } from '../users/types';
 
 import { type ID } from 'src/ts/interface';
 
 interface ICommonEmployeeStatus extends ID {
   created_at: string;
-  label: string;
+  label?: string;
+  title?: string;
+  name?: string;
+  status?: boolean;
+  description?: string;
   updated_at: string;
 }
 
@@ -83,7 +87,7 @@ export interface IEmployee extends ID {
   status: boolean;
   structure_roles: string[];
   updated_at: string;
-  user: IUsers;
+  user: IUser;
   work_experiences: string[];
   worker_contract: IWorkerContract[];
   workplace_infos: IWorkPlaceInfo[];
@@ -104,20 +108,26 @@ export interface IFamilyInfo extends ID {
   updated_at: string;
 }
 
-interface ICategory extends ID {
+export interface ICategory extends ID {
   code: string;
   company: ICompany;
+  company_id: number;
   create_date: string;
   created_at: string;
   employee: IEmployee;
+  employee_id: number;
   end_date: string;
   icon: string;
   label: string;
-  parent: null;
+  name: string;
+  parent: ICategory;
+  parent_id: number;
   position_level: ICommonEmployeeStatus & { icon: string };
+  position_level_id: number;
   structure_level: ICommonEmployeeStatus & { icon: string };
+  structure_level_id: number;
   updated_at: string;
-  work_status: ICommonEmployeeStatus;
+  work_status: ICommonEmployeeStatus | number;
 }
 
 export interface IMilitaryInfo extends ID {
@@ -138,4 +148,134 @@ export interface IMilitaryInfo extends ID {
   staff: ICommonEmployeeStatus;
   status: boolean;
   updated_at: string;
+}
+
+export interface IEducationInfo extends ID {
+  diplom_issue_date: string;
+  diplom_seria_num: string;
+  employee: IEmployee;
+  end_date: string;
+  faculty: string;
+  insert_user: IUser;
+  institution: ICommonEmployeeStatus;
+  profession: string;
+  qualification: ICommonEmployeeStatus;
+  status: boolean;
+  update_user: IUser;
+}
+
+export interface ICertificates extends ID {
+  created_at: string;
+  employee: IEmployee;
+  given_date: string;
+  insert_user: IUser;
+  status: boolean;
+  training_center_name: string;
+  training_date: string;
+  training_name: string;
+  update_user: IUser;
+  updated_at: string;
+}
+
+interface ITranslation extends ID {
+  label: string;
+  language_level_id: number;
+  locale: string;
+}
+
+export interface ILanguageKnowledge extends ID {
+  created_at: string;
+  employee: IEmployee;
+  insert_user: IUser;
+  language: ICommonEmployeeStatus;
+  language_reading: ICommonEmployeeStatus & ITranslation[];
+  language_speaking: ICommonEmployeeStatus & ITranslation[];
+  language_understanding: ICommonEmployeeStatus & ITranslation[];
+  language_writing: ICommonEmployeeStatus & ITranslation[];
+  status: boolean;
+  update_user: IUser;
+  updated_at: string;
+}
+
+export interface ISkill extends ID {
+  created_at: string;
+  employee: IEmployee;
+  insert_user: IUser;
+  skill_description: string;
+  skill_name: string;
+  status: boolean;
+  update_user: IUser;
+  updated_at: string;
+}
+
+export interface IDriverLicense extends ID {
+  category: ICommonEmployeeStatus;
+  created_at: string;
+  employee: IEmployee;
+  expire_date: string;
+  insert_user: IUser;
+  issue_date: string;
+  license_issuer: string;
+  license_serial_number: string;
+  status: boolean;
+  update_user: IUser;
+  updated_at: string;
+}
+
+export interface IMigrationInfo extends ID {
+  created_at: string;
+  employee: IEmployee;
+  insert_user: IUser;
+  prp_issuer: string;
+  prp_permit_date: string;
+  prp_serial_number: string;
+  prp_valid_date: string;
+  status: boolean;
+  trp_issuer: string;
+  trp_permit_date: string;
+  trp_permit_reason: string;
+  trp_serial_number: string;
+  trp_valid_date: string;
+  update_user: IUser;
+  updated_at: string;
+  wp_permit_date: string;
+  wp_serial_number: string;
+  wp_valid_date: string;
+}
+
+export interface IMedicalInfo extends ID {
+  created_at: string;
+  deficiency_desc: string;
+  employee: IEmployee;
+  insert_user: IUser;
+  last_renew_date: string;
+  medical_app: ICommonEmployeeStatus;
+  physical_deficiency: ICommonEmployeeStatus;
+  renew_interval: number;
+  update_user: IUser;
+  updated_at: string;
+}
+
+export interface IPrevPosition extends ID {
+  created_at: string;
+  employee: IEmployee;
+  end_date: string;
+  insert_user: IUser;
+  leave_reason: string;
+  prev_employer: string;
+  sector: string;
+  start_date: string;
+  status: boolean;
+  update_user: IUser;
+  updated_at: string;
+}
+
+export interface IWorkExperience extends ID {
+  created_at: string;
+  employee: IEmployee;
+  general_work_experience: string;
+  status: boolean;
+  updated_at: string;
+  work_experience_before_enterprise: string;
+  work_experience_enterprise: string;
 }

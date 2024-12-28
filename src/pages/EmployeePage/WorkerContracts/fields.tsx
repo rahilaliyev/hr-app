@@ -175,7 +175,7 @@ export const tableFields = ({
   },
   {
     flex: 1,
-    minWidth: 120,
+    minWidth: 160,
     field: 'actions',
     sortable: false,
     headerName: '',

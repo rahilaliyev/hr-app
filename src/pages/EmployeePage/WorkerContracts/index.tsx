@@ -61,7 +61,8 @@ const WorkerContracts = () => {
         }}
         onConfirm={handleConfirm}
       >
-        Bu əməliyyat daimidir və geri qaytarıla bilməz. İşçini silmək istədiyinizə əminsiniz?
+        Bu əməliyyat daimidir və geri qaytarıla bilməz. İşçi barədə əmək müqaviləsinin şərtlərini silmək
+        istədiyinizə əminsiniz?
       </ConfirmModal>
     </Stack>
   );

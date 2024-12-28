@@ -31,7 +31,7 @@ interface IEmployee extends ID {
   updated_at: string;
 }
 
-export interface IUsers extends ID {
+export interface IUser extends ID {
   companies: ICompany[];
   created_at: string;
   email: string;

@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 
-import { type IUsers } from 'src/api/users/types';
+import { type IUser } from 'src/api/users/types';
 
 import { type TFormValues } from './validationSchema';
 
-export const useDefaultValues = (data: IUsers | undefined): TFormValues =>
+export const useDefaultValues = (data: IUser | undefined): TFormValues =>
   useMemo(() => {
     const userCheckData = !!data?.employee?.id;
     const roleGroupsData = data?.roleGroups?.map((role) => role?.id);
