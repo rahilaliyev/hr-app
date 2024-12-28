@@ -1,4 +1,4 @@
-import { type ICompanies } from 'src/api/companies/types';
+import { type ICompany } from 'src/api/companies/types';
 
 import { type GridColDef } from '@mui/x-data-grid';
 
@@ -10,7 +10,7 @@ export const tableFields = ({
   handleNavigateDetail,
   handleNavigateEdit,
   handleDeleteModal,
-}: ITableActionProps): GridColDef<ICompanies>[] => [
+}: ITableActionProps): GridColDef<ICompany>[] => [
   {
     minWidth: 50,
     field: 'id',

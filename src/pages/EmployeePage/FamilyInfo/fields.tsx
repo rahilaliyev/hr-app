@@ -1,6 +1,6 @@
 import { type IFamilyInfo } from 'src/api/employees/types';
 
-import { Box, Tooltip } from '@mui/material';
+import { Tooltip, Typography } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
 
 import { TableActions } from 'src/components/ui/tableActions';
@@ -57,7 +57,9 @@ export const tableFields = ({
     headerName: 'Ünvan',
     renderCell: ({ row }) => (
       <Tooltip title={row.address}>
-        <Box>{row.address}</Box>
+        <Typography noWrap variant="subtitle2" style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
+          {row.address}
+        </Typography>
       </Tooltip>
     ),
   },

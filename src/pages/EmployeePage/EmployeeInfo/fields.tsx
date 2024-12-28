@@ -1,4 +1,4 @@
-import { type IEmployees } from 'src/api/employees/types';
+import { type IEmployee } from 'src/api/employees/types';
 
 import { Avatar, Chip } from '@mui/material';
 import { type GridColDef } from '@mui/x-data-grid';
@@ -11,7 +11,7 @@ export const tableFields = ({
   handleNavigateDetail,
   handleNavigateEdit,
   handleDeleteModal,
-}: ITableActionProps): GridColDef<IEmployees>[] => [
+}: ITableActionProps): GridColDef<IEmployee>[] => [
   {
     width: 20,
     field: 'id',

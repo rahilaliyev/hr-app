@@ -1,4 +1,4 @@
-import { type ICompanies } from '../companies/types';
+import { type ICompany } from '../companies/types';
 import { type IUsers } from '../users/types';
 
 import { type ID } from 'src/ts/interface';
@@ -9,11 +9,12 @@ interface ICommonEmployeeStatus extends ID {
   updated_at: string;
 }
 
-interface IWorkerContract extends ID {
-  company: string;
+export interface IWorkerContract extends ID {
+  company: ICompany;
   created_at: string;
   date_conclusion_contract: string;
   date_contract: string;
+  employee: IEmployee;
   employee_start_date: string;
   indefinite: number;
   job_description: string;
@@ -46,11 +47,11 @@ interface IWorkPlaceInfo extends ID {
   work_status: string;
 }
 
-export interface IEmployees extends ID {
+export interface IEmployee extends ID {
   birthDate: string;
   birthPlace: string;
   certificates: string[];
-  companies: ICompanies[];
+  companies: ICompany[];
   created_at: string;
   driving_licenses: string[];
   education_infos: string[];
@@ -93,7 +94,7 @@ export interface IFamilyInfo extends ID {
   birth_date: string;
   contact_number: string;
   created_at: string;
-  employee: IEmployees;
+  employee: IEmployee;
   family_member_type: ICommonEmployeeStatus;
   m_firstname: string;
   m_lastname: string;
@@ -105,10 +106,10 @@ export interface IFamilyInfo extends ID {
 
 interface ICategory extends ID {
   code: string;
-  company: ICompanies;
+  company: ICompany;
   create_date: string;
   created_at: string;
-  employee: IEmployees;
+  employee: IEmployee;
   end_date: string;
   icon: string;
   label: string;
@@ -124,7 +125,7 @@ export interface IMilitaryInfo extends ID {
   category: ICategory;
   completion_date: string;
   created_at: string;
-  employee: IEmployees;
+  employee: IEmployee;
   fitness_service: string;
   general: string;
   group: ICommonEmployeeStatus;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useDeleteEmployee, useGetEmployees } from 'src/api';
-import { type IEmployees } from 'src/api/employees/types';
+import { type IEmployee } from 'src/api/employees/types';
 
 import { Stack } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
@@ -17,7 +17,7 @@ const EmployeeInfo = () => {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [isDeleteModal, setIsDeleteModal] = useState(false);
-  const { data = [] as IEmployees[], isLoading } = useGetEmployees();
+  const { data = [] as IEmployee[], isLoading } = useGetEmployees();
   const { mutate, isPending } = useDeleteEmployee();
 
   const handleNavigateDetail = (id: number) => {
